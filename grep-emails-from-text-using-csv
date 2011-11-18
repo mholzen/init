@@ -1,0 +1,25 @@
+#!/usr/bin/env python2.7
+
+from relib import email
+import csv
+import sys
+		
+content = file("/Users/holzen/tmp/emails.txt").read()
+
+emails = email.findall(content)
+
+emails = set(emails)
+
+class Contact:
+	def __init__(self,email=None,name=None):
+		self.email = email
+		email_name = self.email.partition('@')[0]
+		if not name and "." in email_name:
+			name = email_name.replace('.', ' ').title()
+		self.name = name
+
+contacts = [ Contact(e).__dict__ for e in emails ]
+
+writer = csv.DictWriter(sys.stdout, ("name", "email") )
+writer.writeheader()
+writer.writerows(contacts)

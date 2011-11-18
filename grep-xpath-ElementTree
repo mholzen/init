@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+from xml.etree.ElementTree import ElementTree
+
+# using full namespaces in xpath query
+doc = ElementTree(file='wants 2.graphml')
+nodes = doc.findall('//{http://www.yworks.com/xml/graphml}ShapeNode')
+assert(len(nodes)>10)
+
+# TODO: fix: using prefix namespaces in query
+from xml.etree.ElementTree import VERSION, _namespace_map
+assert(VERSION=="1.2.6")
+
+_namespace_map["http://www.yworks.com/xml/graphml"] = "y"
+
+doc = ElementTree(file='wants 2.graphml')
+# TODO: following raises
+nodes = doc.findall('//y:ShapeNode')
+assert(len(nodes)>10)

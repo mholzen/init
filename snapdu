@@ -1,0 +1,3 @@
+#!/bin/bash
+
+du -xk / | sort -rn > /tmp/du-root.txt

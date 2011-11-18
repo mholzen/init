@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import re
+from subprocess import Popen, PIPE
+
+infname = "Downloads/E-09 2nd yr Student Interest-Contact Info.pdf"
+
+pipe = Popen( ["pdf2txt.py-2.6", infname], stdout=PIPE)
+
+content = pipe.communicate()[0]  # returns tuple of stdout, stderr
+
+all_emails = re.compile(r"\S+@\S+").findall(content)
+
+uw_emails = filter ( lambda x: x.count(".edu"), all_emails)
+
+print "\n".join(uw_emails)

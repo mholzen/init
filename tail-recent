@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#  tail-recent logs/foo*.log
+
+# make this work:
+#  tail-recent logs
+# ls -t logs returns filenames relative to logs/, not relative to cwd
+
+tail -f `ls -t "$@" | head -1`

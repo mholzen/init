@@ -1,0 +1,1 @@
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
