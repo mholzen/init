@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+import sys
+import os
+import shutil
+from os.path import expanduser, join
+sources=sys.argv[1:]
+
+stash=expanduser("~/.stash")
+
+if os.path.exists(stash):
+	shutil.rmtree(stash)
+os.mkdir(stash)
+
+for source in sources:
+	full = os.path.abspath(source)
+	target = join(stash, os.path.basename(full))
+	if os.path.lexists(target):
+		target = target+"~"
+	print full + " to " + target
+	os.symlink(full, target)

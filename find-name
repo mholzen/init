@@ -1,3 +1,5 @@
 #!/bin/bash
 
-find . -iname "*$@*"
+
+find -E . -ipath "*$@*"
+#find -E . -iregex ".*$@"
