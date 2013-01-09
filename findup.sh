@@ -1,0 +1,28 @@
+#!/bin/sh
+
+file="$1"
+if [ ! "$file" ]; then
+    echo "no file to find" >&2
+    exit 1
+fi
+
+# Starting directory
+if [ "$2" ]; then
+    dir=`(builtin cd "$2"; pwd)`
+else
+    dir=`pwd`
+fi
+
+while true; do
+    if [ -e $dir/$file ]; then
+	    echo $dir/$file
+	    exit 0
+    fi
+
+    if [ -z "$dir" ]; then
+	    echo "Can't findup $file" >&2
+	    exit 1
+    fi
+
+    dir=${dir%/*}
+done

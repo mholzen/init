@@ -1,0 +1,1 @@
+alias find-git-repositories="find ~/git,~/develop -name .git"
