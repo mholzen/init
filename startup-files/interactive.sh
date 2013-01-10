@@ -1,0 +1,33 @@
+# Bash
+alias ls='ls -F'
+alias h='history'
+alias tm='mate'
+alias e='edit'
+alias py='python'
+alias pyd='python -m pdb'
+alias mg='py manage.py'
+
+setup() {
+    cwd=`pwd`
+    for fn in `findup .setup`; do
+        source $fn
+    done
+    cd $cwd
+}
+
+# Search functions
+search-functions() {
+  if [ "$1" ]; then lessOption="-p $1"; fi
+  declare -f | less $lessOption
+}
+
+# Magenta color on
+colorOn='\[\033[35m\]'
+# Color off
+colorOff='\[\033[0m\]'
+
+export PS1="$colorOn\h:\W \$ $colorOff"
+
+# -X: Configure less to not clear the screen when quitting
+# -i: non case sensitive search
+export LESS=-Xi

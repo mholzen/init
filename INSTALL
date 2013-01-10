@@ -1,0 +1,8 @@
+INSTALL
+=======
+Either symlinks or copy
+
+bash_profile.sh 		-> ~/.bash_profile
+bash_profile.d  		-> ~/.bash_profile.d
+bash_non_interactive.sh -> ~/.bash_non_interactive
+bash_non_interactive.d 	-> ~/.bash_non_interactive.d

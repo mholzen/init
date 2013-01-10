@@ -1,0 +1,1 @@
+../startup-files/use-homedir-bin.sh

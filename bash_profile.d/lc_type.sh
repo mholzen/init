@@ -1,0 +1,1 @@
+../startup-files/lc_type.sh
