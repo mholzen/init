@@ -1,1 +1,3 @@
-for file in ~/.bash_non_interactive.d/*.sh; do source $file; done
+for file in ~/.bash_non_interactive.d/*.sh; do
+  source $file
+done

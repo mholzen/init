@@ -1,7 +1,6 @@
 # Bash
 alias h='history'
 alias chrome='open -a /Applications/Google\ Chrome.app'
-alias edit='open -a /Applications/Sublime\ Text.app'
 alias open-with-chrome='chrome'
 alias reveal=which
 alias functions='declare -f'

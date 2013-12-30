@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "$*" ]; then
+  git=`findup .git`
+  if [ "$git" ]; then
+    argument=`dirname $git`
+  fi
+else
+  argument="$*"
+fi
+
+open -a /Applications/Sublime\ Text.app $argument
+
+
+
