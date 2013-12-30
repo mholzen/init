@@ -26,7 +26,7 @@ colorOn='\[\033[35m\]'
 # Color off
 colorOff='\[\033[0m\]'
 
-export PS1="$colorOn\h:\W \$ $colorOff"
+export PS1="$colorOn\h:\w \$ $colorOff"
 
 # -X: Configure less to not clear the screen when quitting
 # -i: non case sensitive search

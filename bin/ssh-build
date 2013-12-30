@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh 10.1.6.23 -l olivier

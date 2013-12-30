@@ -1,0 +1,3 @@
+#!/bin/bash
+ssh -l marc dev.speedtest.net $*
+
