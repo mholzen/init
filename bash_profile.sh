@@ -4,7 +4,7 @@
 
 export BASH_ENV=~/.bash_non_interactive
 
-for file in ~/.bash_profile.d/*.sh; do
+for file in ~/.bash_profile.d/*.{sh,bash}; do
 	source $file;
 done
 
