@@ -1,3 +1,4 @@
 #!/bin/bash
-ssh -l ec2-user -i ~/.ssh/instruct.pem instruct.vonholzen.org
+ssh -l ec2-user -i ~/.ssh/instruct.pem ec2-50-112-227-110.us-west-2.compute.amazonaws.com
+
 
