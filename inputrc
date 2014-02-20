@@ -1,0 +1,2 @@
+# Cmd-Delete is mapped in iTerm2 to send hex code '0x15' (ctrl-u), which is already mapped to kill line
+# Option-Delete is mapped in iTerm2 to send hex code '0x17' (ctrl-w), which is already mapped to kill word
