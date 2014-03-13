@@ -1,0 +1,3 @@
+#!/bin/bash
+router=$(netstat -anr | grep default | awk '{print $2}')
+ping $router
