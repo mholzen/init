@@ -1,3 +1,7 @@
 #!/bin/bash
 router=$(netstat -anr | grep default | awk '{print $2}')
+if [ -z "$router" ]; then
+  echo "No default route defined"
+  exit 1
+fi
 ping $router
