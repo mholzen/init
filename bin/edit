@@ -4,6 +4,8 @@ if [ -z "$*" ]; then
   git=`findup .git`
   if [ "$git" ]; then
     argument=`dirname $git`
+  else
+    argument=.
   fi
 else
   argument="$*"
