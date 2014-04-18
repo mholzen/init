@@ -26,7 +26,18 @@ colorOn='\[\033[35m\]'
 # Color off
 colorOff='\[\033[0m\]'
 
-export PS1="$colorOn\h:\w \$ $colorOff"
+function cwd_physical_short() {
+  local p=$(pwd -P)
+  echo ${p/$HOME/\~}
+}
+function git_branch() {
+  local line=$(git status 2>/dev/null | grep 'On branch')
+  if [ -n "$line" ]; then
+    echo "$line "
+  fi
+}
+
+export PS1="$colorOn\h:"'$(cwd_physical_short)\n$(git_branch)\$ '"$colorOff"
 
 # -X: Configure less to not clear the screen when quitting
 # -i: non case sensitive search
