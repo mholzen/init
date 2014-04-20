@@ -1,1 +1,1 @@
-export CDPATH=~/paths
+export CDPATH=.:~/paths
