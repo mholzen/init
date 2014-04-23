@@ -33,11 +33,13 @@ function cwd_physical_short() {
 function git_branch() {
   local line=$(git status 2>/dev/null | grep 'On branch')
   if [ -n "$line" ]; then
-    echo "$line "
+    echo -e "$line\n$"
+  else
+    echo "$"
   fi
 }
 
-export PS1="$colorOn\h:"'$(cwd_physical_short)\n$(git_branch)\$ '"$colorOff"
+export PS1="$colorOn\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
 
 # -X: Configure less to not clear the screen when quitting
 # -i: non case sensitive search
