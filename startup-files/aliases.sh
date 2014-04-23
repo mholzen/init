@@ -7,6 +7,7 @@ alias functions='declare -f'
 alias python-debug='python -m pdb'
 alias debug-python=python-debug
 alias gs='git status'
+alias gb='git branch'
 alias pd=pushd
 alias po=popd
 
