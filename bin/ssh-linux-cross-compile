@@ -1,0 +1,2 @@
+cd ~/develop/teamookla/vagrant/linux-cross-compile
+vagrant ssh
