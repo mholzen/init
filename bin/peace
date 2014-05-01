@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd ~/share/marc@vonholzen.org/Wallpapers/
+
+file=$(lst peace | shuf | head -1)
+
+preview-fullscreen $file
