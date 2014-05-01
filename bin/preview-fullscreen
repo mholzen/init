@@ -1,0 +1,19 @@
+#!/bin/bash
+
+open -a /Applications/Preview.app "$*" 
+
+cat <<EOF | osascript -
+
+  tell application "Preview"
+          activate
+  end tell
+
+  tell application "System Events"
+          key down {command}
+          key down {shift}
+          keystroke "f"
+          key up {shift}
+          key up {command}
+  end tell
+
+EOF
