@@ -4,8 +4,10 @@
 
 export BASH_ENV=~/.bash_non_interactive
 
-for file in ~/.bash_profile.d/*.{sh,bash}; do
-	source $file;
+for file in ~/.bash_profile.d/*; do
+	if [ -r $file ]; then
+		source $file;
+	fi
 done
 
 source $BASH_ENV
