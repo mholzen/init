@@ -1,0 +1,11 @@
+#!/bin/bash
+
+arg="$*"
+
+type=$(type -t $arg)
+
+if [[ $type == file ]]; then
+	/usr/bin/which $arg
+else
+	type $arg
+fi
