@@ -21,8 +21,12 @@ search-functions() {
   declare -f | less $lessOption
 }
 
-# Magenta color on
-colorOn='\[\033[35m\]'
+if [[ $HOSTNAME == "ookla.local" || $HOSTNAME == "base.local" ]]; then
+  colorOn='\[\033[35m\]'    # Magenta
+else
+  colorOn='\[\033[36m\]'    # Cyan
+fi
+
 # Color off
 colorOff='\[\033[0m\]'
 
