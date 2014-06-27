@@ -11,7 +11,4 @@ else
   argument="$*"
 fi
 
-open -a /Applications/Sublime\ Text.app $argument
-
-
-
+atom $argument
