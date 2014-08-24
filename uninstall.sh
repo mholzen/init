@@ -6,7 +6,6 @@ dir="$( cd "$( dirname "$0" )" && pwd )"
 source $dir/files.sh
 
 for file in ${files[*]}; do
-        target=~/.$file
-        if [ -h $target ]; then rm $target; fi
-	if [ ! -d $target ]; then ln -sf $dir/$file $target; fi
+	target=~/.$file
+	if [ -h $target ]; then rm $target; fi
 done
