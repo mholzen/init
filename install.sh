@@ -2,10 +2,14 @@
 
 # Symlinks dot files to files in the current working directory
 
-src=`pwd`
-ln -sf $src/bash_profile.sh ~/.bash_profile
-ln -sf $src/bash_profile.d ~/.bash_profile.d
-ln -sf $src/bash_non_interactive.sh ~/.bash_non_interactive
-ln -sf $src/bash_non_interactive.d ~/.bash_non_interactive.d
-ln -sf $src/inputrc ~/.inputrc
+dir="$( cd "$( dirname "$0" )" && pwd )"
+source $dir/files.sh
 
+rm ~/.use-bash || exit "cannot uninstall ~/.use-bash"
+ln -sf $dir ~/.use-bash
+
+for file in ${files[*]}; do
+        target=~/.$file
+        if [ -h $target ]; then rm $target; fi
+	if [ ! -d $target ]; then ln -sf $dir/$file $target; fi
+done
