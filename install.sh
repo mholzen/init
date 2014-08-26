@@ -1,12 +1,22 @@
 #!/bin/sh
 
-# Symlinks dot files to files in the current working directory
-
 dir="$( cd "$( dirname "$0" )" && pwd )"
-source $dir/files.sh
+test -d $dir || echo "cannot locate the source directory"
 
-rm ~/.use-bash || exit "cannot uninstall ~/.use-bash"
-ln -sf $dir ~/.use-bash
+function uninstall() {
+  local file=$1
+  test ! -r $file || return;
+  test -h $file && rm $file;
+  test ! -r $file || ( echo "cannot uninstall $file"; exit 1 )
+}
+function install() {
+  local file=$1
+  ln -s $dir $file
+}
+uninstall ~/.use-bash
+install ~/.use-bash
+
+source $dir/files.sh || exit "cannot locate installed directory"
 
 for file in ${files[*]}; do
         target=~/.$file
