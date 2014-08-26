@@ -3,7 +3,9 @@
 resource="$1"
 type=$(type -t $resource)
 
-if [ $type == 'file' ]; then
+if [ "$type" == '' ]; then
+  /usr/bin/locate $resource
+elif [ "$type" == 'file' ]; then
   /usr/bin/which $resource
 else
   type $resource
