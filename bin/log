@@ -1,0 +1,12 @@
+#!/bin/bash
+
+log=~/data/log.json
+
+arg=$*
+
+if [ -z "$arg" ]; then
+  tail -10 $log
+else
+  timestamp=$(timestamp)
+  echo "{timestamp: \"$timestamp\", log: \"$arg\" }" >> $log
+fi
