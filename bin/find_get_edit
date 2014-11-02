@@ -1,0 +1,9 @@
+find resource - returns paths matching the resource given the cwd
+
+find-source - returns the single path that's the source fo the resource
+
+get resource - displays file content of $(find-source resource)
+
+edit resource - edits file content at $(find-source resource)
+
+search

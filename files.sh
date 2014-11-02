@@ -6,4 +6,5 @@ bash_profile.d
 bash_non_interactive
 bash_non_interactive.d
 inputrc
+ssh/config
 )

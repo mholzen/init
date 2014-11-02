@@ -3,12 +3,18 @@
 if [ -z "$*" ]; then
   git=`findup .git`
   if [ "$git" ]; then
-    argument=`dirname $git`
+    resource=`dirname $git`
   else
-    argument=.
+    resource=.
   fi
 else
-  argument="$*"
+  resource="$*"
 fi
 
-atom $argument
+if [ -r "$resource" ]; then
+  path=$resource
+else
+  path=$(find-source "$resource")
+fi
+
+atom $path

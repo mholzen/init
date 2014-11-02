@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# returns the source path matching a resource name given the cwd
+
+( find "$*" & ) | head -1
