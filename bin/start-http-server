@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# use something like upstart/launchd
+/Users/marcvonholzen/.nvm/v0.10.26/bin/http-server ~ &
