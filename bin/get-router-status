@@ -1,0 +1,9 @@
+#!/bin/bash
+
+router=$(get-router)
+
+status=$(
+  curl --silent -u admin:admin http://$router/system_status.asp |
+  awk '/<SCRIPT language=JavaScript>/,/function preSubmit/'
+)
+echo "$status"

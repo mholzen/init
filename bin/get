@@ -2,7 +2,7 @@
 
 command="$1"
 if [ "$command" == 'source' ]; then
-  get-source "${@:2}"
+  find-source "${@:2}"
   exit
 else
   resource=$command

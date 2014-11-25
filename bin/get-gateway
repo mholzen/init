@@ -1,0 +1,5 @@
+#!/bin/bash
+
+get-router-status |
+  grep -i gateway |
+  grep -oE '\d+\.\d+\.\d+\.\d+'

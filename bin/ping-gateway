@@ -1,0 +1,10 @@
+#!/bin/bash
+
+gateway=$(get-gateway)
+
+if [ -z "$gateway" ]; then
+  echo "Can't determine gateway"
+  exit 1
+fi
+
+ping $gateway

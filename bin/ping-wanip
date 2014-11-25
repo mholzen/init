@@ -1,0 +1,10 @@
+#!/bin/bash
+
+wanip=$(get-wanip)
+
+if [ -z "$wanip" ]; then
+  echo "Can't determine wanip"
+  exit 1
+fi
+
+ping $wanip

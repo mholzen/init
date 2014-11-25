@@ -2,4 +2,13 @@
 
 # returns the source path matching a resource name given the cwd
 
-( find "$*" & ) | head -1
+# TODO: handle cases where find returns more than one result
+# TODO: improve performance
+
+# - consider using a map to track where installed binaries came from
+# - consider embedding the source repo inside the resources?
+# - consider having 'install' command keep track of the map
+# - consider returning a github repo name if the source is not installed
+# - when the resource is an executable installed under ~
+
+( find ~/develop -name "$*" & ) | head -1
