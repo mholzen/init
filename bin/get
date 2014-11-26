@@ -8,7 +8,7 @@ else
   resource=$command
 fi
 
-path=$( find-source "$*" )
+path=$( find-resource $resource )
 
 if [ "$path" != '' ]; then
   cat $path

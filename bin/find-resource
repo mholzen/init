@@ -7,7 +7,7 @@ type=$(type -t $resource)
 
 if [ "$type" == 'file' ]; then    # executable
   /usr/bin/which "$resource"
-  return
+  exit
 fi
 
 /usr/bin/find . -name $resource -exec echo {} \;

@@ -1,2 +1,6 @@
 #!/bin/bash
-netstat -anr | grep default | awk '{print $2}'
+
+netstat -anr | 
+  grep default | 
+  awk '{print $2}' | 
+  grep -oE '\d+\.\d+\.\d+\.\d+'
