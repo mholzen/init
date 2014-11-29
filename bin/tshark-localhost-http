@@ -1,0 +1,9 @@
+ #!/bin/bash
+
+filter="$*"
+
+if [ ! -z "$filter" ]; then
+  filter="and $filter"
+fi
+
+sudo tshark -n -i lo0 '(((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0) and tcp' $filter
