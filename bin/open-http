@@ -1,0 +1,12 @@
+#!/bin/bash
+
+path=$(pwd)
+path=${path/$HOME/}
+
+arg=$1
+
+if [ ! -z $arg ]; then
+  path=$path/$arg
+fi
+
+open http://localhost:8081/$path
