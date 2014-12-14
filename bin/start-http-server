@@ -1,4 +1,9 @@
 #!/bin/bash
 
 # use something like upstart/launchd
-/Users/marcvonholzen/.nvm/v0.10.26/bin/http-server ~ &
+
+if [ ! -d ~/log ]; then
+  mkdir ~/log
+fi
+
+/Users/marcvonholzen/.nvm/v0.10.26/bin/http-server ~ > ~/log/http-server.log &
