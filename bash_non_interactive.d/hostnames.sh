@@ -1,1 +1,1 @@
-../startup-files/hostnames.sh
+vonholzen='vonholze@www.vonholzen.org'

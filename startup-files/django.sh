@@ -1,1 +1,0 @@
-alias django-admin='django-admin.py'
