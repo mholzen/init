@@ -3,4 +3,5 @@
 netstat -anr | 
   grep default | 
   awk '{print $2}' | 
-  grep -oE '\d+\.\d+\.\d+\.\d+'
+  grep -oE '\d+\.\d+\.\d+\.\d+' |
+  uniq
