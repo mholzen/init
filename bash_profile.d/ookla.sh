@@ -1,4 +1,7 @@
-alias cdo='cd ~/develop/teamookla'
+DEV=~/develop/teamookla
+alias cdo='cd $DEV'
 
-export PROJECT_BASE=~/develop/teamookla
+export PROJECT_BASE=$DEV
 export POCO_BASE=$PROJECT_BASE/poco
+
+PATH=$PATH:$DEV/speedtest-as3-tests/bin:$DEV/speedtest-as3-core/bin
