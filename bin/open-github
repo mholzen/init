@@ -1,0 +1,17 @@
+#!/bin/bash
+
+arg="$1"
+
+base=$(findup .git)
+base=${base/.git/}
+
+pwd=$(pwd)
+path=${pwd/$base/}
+
+url=$(git config --get remote.origin.url)
+url=${url/.git/}
+url=${url/git@github.com:/http://github.com/}
+
+branch=$(git symbolic-ref --short HEAD)
+
+open $url/tree/$branch/$path/$arg
