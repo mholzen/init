@@ -7,5 +7,3 @@ for file in ~/.bash_profile.d/*; do
 		source $file;
 	fi
 done
-
-source $BASH_ENV
