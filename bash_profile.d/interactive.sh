@@ -44,7 +44,3 @@ function git_branch() {
 }
 
 export PS1="$colorOn\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
-
-# -X: Configure less to not clear the screen when quitting
-# -i: non case sensitive search
-export LESS=-Xi
