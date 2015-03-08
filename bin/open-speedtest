@@ -8,4 +8,4 @@ if [ ! -z "$arg" ]; then
   path=$path/$arg
 fi
 
-open "http://localhost:8081$path"
+open "http://localhost.speedtest.net:8081$path"

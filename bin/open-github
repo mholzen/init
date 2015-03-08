@@ -4,6 +4,7 @@ arg="$1"
 
 base=$(findup .git)
 base=${base/.git/}
+base=${base%/}    # remove trailing slash
 
 pwd=$(pwd)
 path=${pwd/$base/}
