@@ -1,0 +1,16 @@
+#!/bin/bash
+
+filename=$1
+directory=~/data
+
+if [ -z "$filename" ]; then
+  filename="untitled"
+fi
+path="$directory/$filename"
+
+if [ -r $path ]; then
+  path=$(mktemp -u ${path}.XXXX)
+fi
+
+echo "Creating $path"
+cat > $path
