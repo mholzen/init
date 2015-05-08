@@ -12,5 +12,5 @@ if [ -r $path ]; then
   path=$(mktemp -u ${path}.XXXX)
 fi
 
-echo "Creating $path"
+echo "cat > $path"
 cat > $path
