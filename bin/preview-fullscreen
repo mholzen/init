@@ -1,6 +1,6 @@
 #!/bin/bash
 
-open -a /Applications/Preview.app "$*" 
+open -a /Applications/Preview.app "$@"
 
 cat <<EOF | osascript -
 

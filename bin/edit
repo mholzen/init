@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$*" ]; then
+if [ -z "$@" ]; then
   git=`findup .git`
   if [ "$git" ]; then
     resource=`dirname $git`
@@ -8,7 +8,7 @@ if [ -z "$*" ]; then
     resource=.
   fi
 else
-  resource="$*"
+  resource="$@"
 fi
 
 if [ -r "$resource" ]; then

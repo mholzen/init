@@ -38,4 +38,4 @@ lst() {
 	done < <(mdfind -onlyin . -0 "$query")
 }
 
-lst $*
+lst "$@"

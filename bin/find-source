@@ -11,4 +11,4 @@
 # - consider returning a github repo name if the source is not installed
 # - when the resource is an executable installed under ~
 
-( find ~/develop -name "$*" & ) | head -1
+( find ~/develop -name "$@" & ) | head -1

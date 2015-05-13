@@ -1,3 +1,3 @@
 #!/bin/bash
 
-tcpdump -i all -s 1024 -l -A "$*"
+tcpdump -i all -s 1024 -l -A "$@"

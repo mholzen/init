@@ -1,6 +1,6 @@
 #!/bin/bash
 
-arg="$*"
+arg="$@"
 
 type=$(type -t $arg)
 

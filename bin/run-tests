@@ -3,5 +3,5 @@
 for dir in $(find-test); do
 	dir=${dir%%test}
 	echo $dir
-	(cd $dir; mocha $*)
+	(cd $dir; mocha "$@")
 done
