@@ -2,4 +2,4 @@
 
 # -X: Configure less to not clear the screen when quitting
 # -i: non case sensitive search
-/usr/bin/less -Xi $*
+/usr/bin/less -Xi "$@"

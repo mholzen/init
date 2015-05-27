@@ -1,6 +1,6 @@
  #!/bin/bash
 
-filter="$*"
+filter="$@"
 
 if [ ! -z "$filter" ]; then
   filter="and $filter"

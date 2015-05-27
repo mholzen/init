@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source=$(get-source "$*")
+source=$(get-source "$@")
 edit $source

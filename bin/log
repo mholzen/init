@@ -2,7 +2,7 @@
 
 log=~/data/log.json
 
-arg=$*
+arg="$1"
 
 if [ -z "$arg" ]; then
   tail -10 $log

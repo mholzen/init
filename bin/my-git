@@ -1,4 +1,4 @@
 #!/bin/bash
 
 unset LESS
-/usr/bin/git "$*"
+/usr/bin/git "$@"

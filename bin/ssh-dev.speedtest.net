@@ -1,3 +1,2 @@
 #!/bin/bash
-ssh -l marc dev.speedtest.net $*
-
+ssh -l marc dev.speedtest.net "$@"
