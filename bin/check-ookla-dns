@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo $(date) "Checking for dns" >> /tmp/checkdns.log
+
+if (grep -qE '(ookla|10.100.192)' /etc/resolv.conf); then
+  osascript -e "display notification \"Ookla DNS noticed!\""
+fi
