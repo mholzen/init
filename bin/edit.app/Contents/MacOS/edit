@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ -z "$@" ]; then
+  git=`findup .git`
+  if [ "$git" ]; then
+    resource=`dirname $git`
+  else
+    resource=.
+  fi
+else
+  resource="$@"
+fi
+
+if [ -r "$resource" ]; then
+  path=$resource
+else
+  path=$(find-source "$resource")
+fi
+
+atom $path
