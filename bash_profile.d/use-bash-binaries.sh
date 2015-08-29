@@ -1,1 +1,1 @@
-export PATH=~/.use-bash/bin:$PATH
+export PATH=${HOME}/.use-bash/bin:$PATH
