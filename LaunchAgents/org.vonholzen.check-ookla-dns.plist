@@ -13,7 +13,9 @@
     <key>WatchPaths</key>
     <array>
         <string>/etc/resolv.conf</string>
-        <string>/tmp/foo</string>
+        <string>/tmp/checkdns</string>
     </array>
+    <key>StartInterval</key>
+    <integer>60</integer>
 </dict>
 </plist>

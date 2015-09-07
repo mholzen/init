@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Update the local database of remote branches and prune any delete
+
+git fetch --prune

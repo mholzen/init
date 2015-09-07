@@ -1,0 +1,5 @@
+#!/bin/bash
+
+files=~/Documents/Native\ Instruments/Traktor\ 2.6.8/Settings
+
+rsync -avR "$files" ~/backup/rsync

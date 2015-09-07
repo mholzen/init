@@ -1,1 +1,1 @@
-PATH=$PATH:~/develop/instruct/visualize/bin
+PATH=$PATH:${HOME}/develop/instruct/visualize/bin

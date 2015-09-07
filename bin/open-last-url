@@ -1,0 +1,2 @@
+url=$(grep -o -E 'https?://.*$' ~/.log)
+open $url
