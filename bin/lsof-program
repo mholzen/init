@@ -1,0 +1,7 @@
+#!/bin/bash
+
+program="$@"
+
+pid=$(pgrep syncthing)
+
+lsof -p $pid
