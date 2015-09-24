@@ -43,4 +43,4 @@ function git_branch() {
   fi
 }
 
-export PS1="$colorOn\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
+export PS1="$colorOn\u@\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
