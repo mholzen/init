@@ -10,7 +10,6 @@ alias gs='git status'
 alias gb='git branch'
 alias pd=pushd
 alias po=popd
-alias cdm='cd ~/develop/mholzen'
 
 # Copy the current working directory so that I can paste or use pbpaste with it
 alias copy-cwd='echo -n `pwd` | pbcopy'
