@@ -1,10 +1,11 @@
 #!/bin/bash
 
 dir="${@:-.}"
-dufile=/tmp/du
+dir=$(cd $dir; pwd)
+
+dufile=~/.du
 
 function update {
-  dir=$(cd $dir; pwd)
   {
     ( cat $dufile || touch $dufile ) | grep -v "$dir" ;
     ( cd / ; du -k $dir );
@@ -12,7 +13,7 @@ function update {
 }
 
 function view {
-  grep -i $dir $dufile
+  grep -i --no-filename $dir $dufile
 }
 
 function human {
