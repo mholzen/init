@@ -1,5 +1,16 @@
 #!/bin/bash
 
-files=~/Documents/Native\ Instruments/Traktor\ 2.6.8/Settings
+files=(
+  ~/Documents/Native\ Instruments/Traktor\ 2.6.8/Settings
+  ~/DropBox/Apps/Workflowy
+)
 
-rsync -avR "$files" ~/backup/rsync
+for file in "${files[@]}"; do
+  if [ ! -r "$file" ]; then
+    echo "Warning: not backing up $file because it cannot be read"
+    continue
+  fi
+  
+  echo "Backing up content for $file"
+  rsync -avR "$file" ~/backup/rsync
+done

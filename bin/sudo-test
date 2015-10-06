@@ -1,0 +1,5 @@
+sudo su - marchome -c '/bin/bash --rcfile --' << EOF
+whoami
+cd /tmp/
+pwd
+EOF
