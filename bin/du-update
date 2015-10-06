@@ -4,10 +4,11 @@ dir="${@:-.}"
 dir=$(cd $dir; pwd)
 
 dufile=~/.du
+test -r $dufile || touch $dufile
 
 function update {
   {
-    ( cat $dufile || touch $dufile ) | grep -v "$dir" ;
+    grep -v "$dir" $dufile;
     ( cd / ; du -k $dir );
   } | sort -rn | tee $dufile
 }
