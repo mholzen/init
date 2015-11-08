@@ -4,6 +4,12 @@ log=~/data/log.json
 
 arg="$@"
 
+if [ "$1" == "-h" ]; then
+  echo "log [-h] [text]"
+  echo "to log to $log"
+  exit
+fi
+
 if [ -z "$arg" ]; then
   tail -10 $log
 else

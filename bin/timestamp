@@ -1,3 +1,9 @@
 #!/bin/bash
 
-/bin/date "$@" +"%Y-%m-%d %H:%M:%S"
+if [ $(basename "$0") == "datestamp" ]; then
+  format="%Y-%m-%d"
+else
+  format="%Y-%m-%d %H:%M:%S"
+fi
+
+/bin/date "$@" +"$format"

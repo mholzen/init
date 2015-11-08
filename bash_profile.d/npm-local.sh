@@ -1,1 +1,1 @@
-export PATH=$PATH:$HOME/local/bin
+export PATH=~/use/npm/node_modules/.bin:$PATH
