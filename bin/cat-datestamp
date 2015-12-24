@@ -1,1 +1,1 @@
-cat > $(datestamp)
+cat >> $(datestamp)
