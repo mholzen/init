@@ -1,1 +1,3 @@
+test -r $(datestamp) && cat $(datestamp)
+
 cat >> $(datestamp)

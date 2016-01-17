@@ -1,0 +1,14 @@
+if [ -r "$@" ]; then
+	file="$@"
+else
+	files=$@*
+	if [ $#files == 1 ]; then
+		file=$files[0]
+	else
+		echo "too many matches"
+		echo $files
+		exit 
+	fi
+fi
+
+edit $file
