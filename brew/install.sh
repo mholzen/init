@@ -1,2 +1,2 @@
 #!/bin/bash
-brew install iperf libevent markdown memcached mongodb openssl syncthing trash uncrustify
+brew install iperf libevent markdown memcached mongodb openssl syncthing trash uncrustify fswatch

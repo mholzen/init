@@ -1,0 +1,7 @@
+file=$(realpath "$@")
+
+osascript -e '
+tell application "Finder"
+set desktop picture to POSIX file "'"$file"'"
+end tell
+'
