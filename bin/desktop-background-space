@@ -1,0 +1,2 @@
+cd ~/Pictures/space
+desktop-background `ls | shuf | head -1`
