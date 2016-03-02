@@ -1,0 +1,17 @@
+#!/bin/bash
+
+root=$(git rev-parse --show-toplevel)
+if [[ -z "$root" ]]; then
+  echo "not in a git repository"
+  exit 1
+fi
+root=$root/www
+path=${PWD/$root}
+
+arg=$1
+
+if [ ! -z "$arg" ]; then
+  path=$path/$arg
+fi
+
+open "http://vagrant.speedtest.net/$path"
