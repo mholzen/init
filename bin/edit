@@ -3,7 +3,7 @@
 if [ -z "$@" ]; then
   git=`findup .git`
   if [ "$git" ]; then
-    resource=`dirname $git`
+    resource=`dirname "$git"`
   else
     resource=.
   fi
@@ -17,4 +17,4 @@ else
   path=$(find-source "$resource")
 fi
 
-atom $path
+atom "$path"
