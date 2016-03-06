@@ -1,4 +1,1 @@
-#!/bin/bash
-
-# start version installed by brew
-mongod --config /usr/local/etc/mongod.conf
+mongod --dbpath=~/db

@@ -1,4 +1,4 @@
-file=$(realpath "$@")
+file=$(realpath $(random-file "$@"))
 
 osascript -e '
 tell application "Finder"
