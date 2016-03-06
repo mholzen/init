@@ -15,4 +15,4 @@ PATH=$PATH:$DEV/speedtest-as3-tests/bin:$DEV/speedtest-as3-core/bin
 export PATH="$PATH:${HOME}/develop/teamookla/android-sdk-macosx/tools"
 
 # Speedtestnet
-PATH=$DEV/speedtestnet/vendor/phpunit/phpunit:$PATH
+PATH=$PATH:$DEV/speedtestnet/vendor/phpunit/phpunit
