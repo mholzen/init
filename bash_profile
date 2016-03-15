@@ -7,3 +7,5 @@ for file in ~/.use-bash/bash_profile.d/*; do
 		source $file;
 	fi
 done
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
