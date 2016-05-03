@@ -1,0 +1,19 @@
+dir=$1
+osascript <<EOF
+tell application "iTerm2"
+
+  set newWindow to (create window with default profile)
+
+  tell current session of newWindow
+    write text "cdm $dir"
+
+    set newSession to (split vertically with same profile)
+    -- doesn't work
+    tell newSession of newWindow
+      write text "cdm $dir"
+    end tell
+  end tell
+
+
+end tell
+EOF
