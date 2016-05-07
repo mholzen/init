@@ -1,4 +1,12 @@
-file=$(realpath $(random-file "$@"))
+arg="${@:-$HOME/Pictures/wallpapers/}"
+
+if [ -f "$arg" ]; then
+  file="$arg"
+elif [ -d "$arg" ]; then
+  file="$arg"/$(random-file "$arg")
+fi
+
+file=$(realpath "$file")
 
 osascript -e '
 tell application "Finder"
