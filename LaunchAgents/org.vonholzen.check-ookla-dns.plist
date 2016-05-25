@@ -8,7 +8,7 @@
     <array>
         <string>bash</string>
         <string>-c</string>
-        <string>~/.use-bash/bin/check-ookla-dns</string>
+        <string>~/.bash/bin/check-ookla-dns</string>
     </array>
     <key>WatchPaths</key>
     <array>

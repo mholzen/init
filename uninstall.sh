@@ -3,7 +3,7 @@
 dir="$( cd "$( dirname "$0" )" && pwd )"
 source $dir/files.sh
 
-rm ~/.use-bash || exit "cannot uninstall ~/.use-bash"
+rm ~/.bash || exit "cannot uninstall ~/.bash"
 
 for file in ${files[*]}; do
 	target=~/.$file
