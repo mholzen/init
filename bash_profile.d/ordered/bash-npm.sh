@@ -1,2 +1,2 @@
 # node binaries
-export PATH="${PATH}:${HOME}/.bash/npm/node_modules/.bin"
+export PATH="${PATH}:${HOME}/npm/bin"
