@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: make modular so that I can choose what component(s) to install
+
 srcdir="$( cd "$( dirname "$0" )" && pwd )"
 
 trash ~/.bash; ln -s "$srcdir" ~/.bash
