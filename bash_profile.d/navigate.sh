@@ -2,6 +2,10 @@ function cdm {
   cd ~/develop/mholzen/$@
 }
 
+function cdo {
+  cd ~/develop/teamookla/$@
+}
+
 function cd-new {
   if [[ -z "$@" ]]; then
     arg=~

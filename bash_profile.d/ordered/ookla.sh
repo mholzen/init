@@ -1,5 +1,4 @@
 DEV=~/develop/teamookla
-alias cdo='cd $DEV'
 alias n=netgauge
 export VAGRANT_CWD="$DEV/vagrant/development"
 
