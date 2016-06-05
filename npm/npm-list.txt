@@ -1,5 +1,10 @@
-bower
-gulp
-js-beautify
-node-inspector
-npm
+coffee-script
+forever
+graph
+help
+json
+npm-check-updates
+rdf
+sinopia
+ttab
+visualize
