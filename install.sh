@@ -13,3 +13,7 @@ ln -s $srcdir/atom/init.coffee ~/.atom/init.coffee
 
 trash ~/.npmrc
 ln -s $srcdir/npm/npmrc ~/.npmrc
+
+[ -r ~/.hushlogin ] && trash ~/.hushlogin
+touch ~/.hushlogin
+

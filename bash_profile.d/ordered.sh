@@ -2,7 +2,7 @@
 files=(
   nvm.sh
   bash-binaries.sh
-  bash-npm.sh
+  npm.sh
   node.sh
   ookla.sh
   python.sh

@@ -1,1 +1,1 @@
-prefix = /Users/marchome/npm
+prefix = ${HOME}/.npm-packages
