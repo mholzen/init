@@ -1,7 +1,7 @@
 # enforce a specific order to ensure PATH is setup properly
 files=(
-  nvm.sh
   bash-binaries.sh
+  nvm.sh
   npm.sh
   node.sh
   ookla.sh
