@@ -43,4 +43,9 @@ function git_branch() {
   fi
 }
 
-export PS1="$colorOn\u@\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
+if [ "$ITERM_PROFILE" == "Large" ]; then
+  PS1="> "
+else
+  PS1="$colorOn\u@\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
+fi
+export PS1
