@@ -4,23 +4,32 @@
 
 srcdir="$( cd "$( dirname "$0" )" && pwd )"
 todir=$HOME
-savedir=/tmp
+
+echo "Install from $srcdir to $todir"
+# set -x
 
 function remove {
-  path="$@"
-  if [ ! -r $todir/$path ]; then return; fi
-  if [ -r $savedir/$path ]; then rm $savedir/$path; fi
-  mv $todir/$path $savedir/$path
+  path="$1"
+
+  if [[ ! -a $path || -L $path ]]; then
+    # file does not exist: nothing to remote
+   return;
+  fi
+
+  cp --preverse=links "$path" "${path}".bak && rm "$path"
 }
 
 function install {
   from="$1"
   to="$2"
+  to="$todir/$to"
 
-  nothing_to_do=[ $(readlink "$from") -ef "$to" ]
-  if $nothing_to_do; then return; fi
+  if [[ -L "$to" && $(readlink "$to") = "$from" ]]; then
+    echo "$to installed correctly"
+    return
+  fi
 
-  remove $to && ln -s $from $todir/$to && echo "ln -s $from $todir/$to"
+  remove $to && ln -s $from $to && echo "ln -s $from $to"
 }
 
 install "$srcdir" .bash
