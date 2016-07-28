@@ -1,6 +1,6 @@
 #!/bin/bash
 
-log=~/data/log.json
+log=~/data/logs/index.json
 
 arg="$@"
 

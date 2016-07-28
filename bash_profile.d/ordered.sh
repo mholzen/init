@@ -5,6 +5,7 @@ files=(
   npm.sh
   node.sh
   ookla.sh
+  local.sh
   python.sh
   macports.sh
 )
