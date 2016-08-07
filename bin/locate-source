@@ -2,4 +2,4 @@
 
 arg="$1"
 
-locate "$HOME/develop/*$arg"
+locate "$HOME/develop/*/$arg"
