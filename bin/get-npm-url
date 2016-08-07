@@ -1,0 +1,9 @@
+#!/bin/bash
+
+packageFile=$(findup package.json)
+
+if [ ! -r "$packageFile" ]; then
+  exit
+fi
+
+cat $packageFile | jq --raw-output .scripts.open | grep-url

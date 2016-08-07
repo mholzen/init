@@ -1,15 +1,18 @@
 #!/bin/bash
 
-command="$1"
-if [ "$command" == 'source' ]; then
+arg="$1"
+if [ "$arg" == 'source' ]; then
   find-source "${@:2}"
   exit
-else
-  resource=$command
 fi
 
-path=$( find-resource $resource )
+path=$( find-resource $arg )
 
-if [ "$path" != '' ]; then
+if [[ "$path" == http* ]]; then
+  curl -v --location $path
+elif [[ "$path" == /* ]]; then
   cat $path
+else
+  echo "cannot get resource location '$path' for argument '$arg'"
+  exit 1
 fi

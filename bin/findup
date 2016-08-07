@@ -20,7 +20,7 @@ while true; do
     fi
 
     if [ -z "$dir" ]; then
-	    echo "Can't findup $file" >&2
+	    echo "cannot findup '$file'" >&2
 	    exit 1
     fi
 
