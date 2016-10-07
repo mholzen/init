@@ -16,7 +16,7 @@ function update {
 }
 
 function view {
-  grep -i --no-filename $dir $dufile
+  grep -i --no-filename "$dir" "$dufile"
 }
 
 function human {
