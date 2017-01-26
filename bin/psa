@@ -1,1 +1,1 @@
-ps auxw
+ps auxw -c
