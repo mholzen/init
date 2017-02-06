@@ -7,7 +7,8 @@ files=(
   ookla.sh
   local.sh
   python.sh
-  macports.sh
+  # disabling macport because of conflict with node (uninstalling macport requires updating it)
+  # macports.sh
 )
 
 for file in "${files[@]}"; do
