@@ -1,0 +1,1 @@
+gpg -r marc@vonholzen.org --encrypt "$@"

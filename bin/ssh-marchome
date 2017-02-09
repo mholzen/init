@@ -1,1 +1,1 @@
-ssh marchome@localhost
+ssh marchome@localhost "$@"
