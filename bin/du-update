@@ -1,8 +1,8 @@
 #!/bin/bash
 
 dir="${@:-.}"
-if [ -d $dir ]; then
-  dir=$(cd $dir; pwd)
+if [ -d "$dir" ]; then
+  dir=$(cd "$dir"; pwd)
 fi
 
 dufile=~/.du
