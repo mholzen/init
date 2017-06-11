@@ -2,6 +2,7 @@
 
 program="$@"
 
-pid=$(pgrep syncthing)
-
-lsof -p $pid
+for pid in $(pgrep $program)
+do
+  lsof -nP -p $pid
+done
