@@ -5,3 +5,11 @@ atom.commands.add 'atom-workspace', 'dot-atom:clean-mode', ->
   config.set 'editor.showLineNumbers', false
 
   # spell check off
+
+atom.commands.add 'atom-workspace', 'fold:toggle', ->
+  editor = atom.workspace.getActiveTextEditor()
+  position = editor.getCursorBufferPosition()
+  if editor.isFoldedAtBufferRow(position.row)
+    editor.unfoldBufferRow(position.row)
+  else
+    editor.foldBufferRow(position.row)
