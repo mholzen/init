@@ -37,7 +37,8 @@ function install {
 install "$srcdir" .bash
 install $todir/.bash/bash_profile .bash_profile
 install $todir/.bash/bash_non_interactive.d .bash_non_interactive.d
-install $todir/inputrc .inputrc
+
+install $srcdir/inputrc .inputrc
 
 install $srcdir/atom/init.coffee .atom/init.coffee
 install $srcdir/atom/keymap.cson .atom/keymap.cson
