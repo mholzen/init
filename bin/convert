@@ -1,0 +1,17 @@
+#!/usr/bin/env coffee
+
+convert = require 'convert-units'
+
+[input, to] = process.argv[2..]
+[m, number, unit] = input.match /^([-\d+eE.,]+)(.*)$/
+
+input = convert(number).from(unit)
+
+output =
+  if to?
+    input.to(to)
+  else
+    {val, unit} = input.toBest()
+    "#{val}#{unit}"
+
+process.stdout.write output + '\n'

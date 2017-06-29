@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# set -o xtrace
+
 # TODO: make modular so that I can choose what component(s) to install
 
 srcdir="$( cd "$( dirname "$0" )" && pwd )"
@@ -16,7 +18,7 @@ function remove {
    return;
   fi
 
-  cp --preverse=links "$path" "${path}".bak && rm "$path"
+  cp -p "$path" "${path}".bak && rm "$path"
 }
 
 function install {
@@ -38,6 +40,7 @@ install $todir/.bash/bash_non_interactive.d .bash_non_interactive.d
 install $todir/inputrc .inputrc
 
 install $srcdir/atom/init.coffee .atom/init.coffee
+install $srcdir/atom/keymap.cson .atom/keymap.cson
 
 install $srcdir/npm/npmrc .npmrc
 
