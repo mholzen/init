@@ -1,0 +1,23 @@
+#!/usr/bin/env coffee
+highland = require 'highland'
+
+# jsonParser = require 'json-parse-stream'
+
+# args = process.argv[2..-1]
+
+fit = (item, width)->
+  # console.log width
+  # console.log Math.max(Math.floor(width-item.length, 0))
+  item[0..width] + Array(Math.max(Math.floor(width)-item.length, 0)).join ' '
+
+width = process.stdout.columns ? 80
+
+highland(process.stdin)
+.split()
+.filter (x) -> x.length > 0
+.map (line) ->
+  items = line.split /[\t]+/
+  items.map (item)-> fit(item, width / items.length)
+    .join ''
+.each (result)->
+  process.stdout.write result + '\n'
