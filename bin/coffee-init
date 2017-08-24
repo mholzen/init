@@ -1,0 +1,1 @@
+coffee --require ~/develop/mholzen/init/js/init.coffee "$@"

@@ -1,0 +1,6 @@
+cat ~/data/domains | coffee-init -e '
+words()
+.map (w)->"http://www.#{w}"
+.map (d)->get d
+.each (p)->p.then (r)-> console.log r.request.uri.href, r.statusCode
+'
