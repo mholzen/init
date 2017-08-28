@@ -1,0 +1,4 @@
+#!/bin/bash
+
+edit "$@"
+echo 'Make changes in editor and quit when completed' | less

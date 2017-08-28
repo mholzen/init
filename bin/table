@@ -1,17 +1,26 @@
 #!/usr/bin/env coffee
 highland = require 'highland'
 
+columnCount = (items)->items.length
+columnCount = -> 3
+maxColumnCount = 0
+
 fit = (item, width)->
-  item[0..width] + Array(Math.max(Math.floor(width)-item.length, 0)).join ' '
+  spaceCount = Math.max(Math.floor(width)-item.length, 0)
+  item[0..width] + Array(spaceCount).join ' '
 
 width = process.stdout.columns ? 80
 
 highland(process.stdin)
 .split()
-.filter (x) -> x.length > 0
-.map (line) ->
-  items = line.split /[,\t]+/
-  items.map (item)-> fit(item, width / items.length)
+.filter (line) -> line.length > 0
+.map (line) -> line.split /[,\t]+/
+.doto (items)->
+  maxColumnCount = Math.max(maxColumnCount, items.length)
+# .sortBy (a,b)->
+#   a[1].localeCompare b[1]
+.map (items)->
+  items.map (item)-> fit(item, width / columnCount(items))
     .join ''
 .each (result)->
   process.stdout.write result + '\n'

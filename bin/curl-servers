@@ -1,0 +1,1 @@
+curl 'http://beta.speedtest.net/api/js/servers?engine=js'
