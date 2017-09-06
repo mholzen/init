@@ -14,7 +14,7 @@ function remove {
   path="$1"
 
   if [[ ! -a $path ]]; then
-    # file does not exist: nothing to remote
+    # file does not exist: nothing to remove
    return;
   fi
 
