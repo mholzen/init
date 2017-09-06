@@ -13,12 +13,12 @@ echo "Install from $srcdir to $todir"
 function remove {
   path="$1"
 
-  if [[ ! -a $path || -L $path ]]; then
+  if [[ ! -a $path ]]; then
     # file does not exist: nothing to remote
    return;
   fi
 
-  cp -p "$path" "${path}".bak && rm "$path"
+  cp -rp "$path" "${path}".bak && rm "$path"
 }
 
 function install {
