@@ -3,6 +3,8 @@ words()
 .map (w)->"http://www.#{w}"
 .map (d)->get d
 .each (p)->
-   p.then (r)-> process.stdout.write JSON.stringify {href: r.request.uri.href, statusCode: r.statusCode}
-   .catch (r)-> console.log r.request.uri.href, r.statusCode
+   p.then (r)->
+     out = JSON.stringify {href: r.request.uri.href, statusCode: r.statusCode}
+     process.stdout.write out + "\n"
+   #.catch (r)-> console.log r.request.uri.href, r.statusCode
 '

@@ -8,4 +8,6 @@ function cdr() {
 alias gs='git status'
 alias gb='git branch'
 alias gd='git diff'
+alias gdc='git diff --cached'
+alias gp='git push'
 alias co='git checkout'
