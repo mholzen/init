@@ -2,25 +2,4 @@
 
 # returns paths matching a resource name given the cwd
 
-resource="$1"
-type=$(type -t $resource)
-
-if [ "$type" == 'file' ]; then    # executable
-  /usr/bin/which "$resource"
-  exit
-fi
-
-function inNpmDirectory() {
-  [ -r "$(findup package.json)" ];
-}
-
-if inNpmDirectory ; then
-  base=$(get-npm-url)
-
-  echo "$base""$resource"
-  exit
-fi
-
-/usr/bin/find . -name $resource -exec echo {} \;
-  # use -exec to force flushing at every match
-  # avoided locate because it does not return immediate results
+search type:file "$@" | head -1

@@ -1,18 +1,11 @@
 #!/bin/bash
 
 arg="$1"
-if [ "$arg" == 'source' ]; then
-  find-source "${@:2}"
+type=$(type -t $arg)
+
+if [ "$type" == 'file' ]; then    # executable
+  cat `/usr/bin/which "$arg"`
   exit
 fi
 
-path=$( find-resource $arg )
-
-if [[ "$path" == http* ]]; then
-  curl -v --location $path
-elif [[ "$path" == /* ]]; then
-  cat $path
-else
-  echo "cannot get resource location '$path' for argument '$arg'"
-  exit 1
-fi
+search type:file "$@" | head -1 | map content
