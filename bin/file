@@ -1,1 +1,1 @@
-search type:file in:. "$@"
+search type:file limit:1 "$@"

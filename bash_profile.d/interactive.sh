@@ -43,7 +43,7 @@ function git_branch() {
   fi
 }
 
-if [ "$ITERM_PROFILE" == "Large" ]; then
+if [ "$ITERM_PROFILE" == "Hotkey Window" ]; then
   PS1="> "
 else
   PS1="$colorOn\u@\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"

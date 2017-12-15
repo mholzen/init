@@ -1,0 +1,1 @@
+search type:file in:images/wallpapers | reduce random | map path | xargs background
