@@ -3,7 +3,7 @@ arg="${@:-$HOME/Pictures/wallpapers/}"
 if [ -f "$arg" ]; then
   file="$arg"
 elif [ -d "$arg" ]; then
-  file="$arg"/$(random-file "$arg")
+  file=$(random-file in:"$arg")
 fi
 
 file=$(realpath "$file")
