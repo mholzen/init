@@ -1,10 +1,1 @@
-cat ~/data/domains | coffee-init -e '
-words()
-.map (w)->"http://www.#{w}"
-.map (d)->get d
-.each (p)->
-   p.then (r)->
-     out = JSON.stringify {href: r.request.uri.href, statusCode: r.statusCode}
-     process.stdout.write out + "\n"
-   #.catch (r)-> console.log r.request.uri.href, r.statusCode
-'
+get domains | map response | map pick statusCode request.uri.href
