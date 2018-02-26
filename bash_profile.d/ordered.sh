@@ -1,6 +1,6 @@
 # enforce a specific order to ensure PATH is setup properly
 files=(
-  bash-binaries.sh
+  path.sh
   nvm.sh
   npm.sh
   node.sh
@@ -17,5 +17,3 @@ for file in "${files[@]}"; do
 		source $filepath;
 	fi
 done
-
-
