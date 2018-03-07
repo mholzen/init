@@ -1,0 +1,20 @@
+# osascript <<EOF
+#   tell application "iTerm"
+#       tell current terminal
+#           launch session "Default Session"
+#           tell the last session
+#               write text "cd \"$cdto\"$cmd"
+#           end tell
+#       end tell
+#   end tell
+#
+#   # tell application iTerm2
+#   #   set newWindow to (create window with profile "Transparent")
+#   # end tell
+# EOF
+
+osascript -e '
+  tell application "iTerm2"
+    create window with profile "Transparent"
+  end tell
+'

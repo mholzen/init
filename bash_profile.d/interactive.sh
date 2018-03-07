@@ -21,6 +21,9 @@ search-functions() {
   declare -f | less $lessOption
 }
 
+#
+# prompt
+#
 if [[ $HOSTNAME == "ookla.local" || $HOSTNAME == "base.local" ]]; then
   colorOn='\[\033[35m\]'    # Magenta
 else
@@ -43,9 +46,14 @@ function git_branch() {
   fi
 }
 
+function set-title-pwd {
+  set-title $(basename $PWD)
+}
+
 if [ "$ITERM_PROFILE" == "Hotkey Window" ]; then
   PS1="> "
 else
   PS1="$colorOn\u@\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
+  PS1+='$(set-title-pwd)'
 fi
 export PS1

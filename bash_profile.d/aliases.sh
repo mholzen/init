@@ -1,5 +1,6 @@
 # Bash
 alias h=history
+alias s=search
 alias chrome='open -a /Applications/Google\ Chrome.app'
 alias open-with-chrome='chrome'
 alias reveal=which
