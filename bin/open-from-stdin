@@ -1,7 +1,0 @@
-if [ -z "$@" ]; then
-  arg=$(map url)
-else
-  arg="$@"
-fi
-
-/usr/bin/open "$arg"
