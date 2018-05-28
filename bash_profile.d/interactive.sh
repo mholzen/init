@@ -54,6 +54,6 @@ if [ "$ITERM_PROFILE" == "Hotkey Window" ]; then
   PS1="> "
 else
   PS1="$colorOn\u@\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
-  PS1+='$(set-title-pwd)'
+  # PS1+='$(set-title-pwd)'
 fi
 export PS1
