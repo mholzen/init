@@ -1,0 +1,4 @@
+npm install --save-dev coffeescript chai mocha
+
+cp -pr ~/develop/mholzen/templates-coffee/test .
+
