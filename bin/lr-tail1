@@ -1,3 +1,5 @@
 #!/bin/bash
 
-ls -rt1 "$@" | tail -1
+if [ "$@" ]; then cd "$@"; fi
+
+realpath "$(ls -rt1 | tail -1)"

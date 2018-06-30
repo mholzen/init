@@ -1,5 +1,5 @@
 if [ -z "$@" ]; then
-  arg=$(map url)
+  arg=$(map location)
 else
   arg="$@"
 fi

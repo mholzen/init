@@ -1,9 +1,10 @@
-arg="${@:-$HOME/Pictures/wallpapers/}"
+arg="${@:-$HOME/images/wallpapers/}"
 
 if [ -f "$arg" ]; then
   file="$arg"
 elif [ -d "$arg" ]; then
-  file=$(random-file duration:1000 "$arg")
+
+  file=$(cd $arg; random-file duration:1000 "$arg")
 fi
 
 file=$(realpath "$file")
