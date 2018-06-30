@@ -1,3 +1,3 @@
 //prefix=/Users/marchome/.npm-packages
-prefix=${HOME}/.npm-packages
-//registry.npmjs.org/:_authToken=abb50665-eaad-4e95-a6dd-d80e572ae197
+prefix=/Users/marcvonholzen/.npm-packages
+//registry.npmjs.org/:_authToken=0f9166ea-412c-4ece-afb3-b9acadcee9e8

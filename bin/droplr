@@ -1,0 +1,4 @@
+osascript -e 'tell application "System Events" to keystroke "d" using {option down}'
+
+# wait then
+# pbpaste
