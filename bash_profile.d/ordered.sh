@@ -2,7 +2,6 @@
 files=(
   path.sh
   nvm.sh
-  npm.sh
   node.sh
   ookla.sh
   local.sh
