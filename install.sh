@@ -18,7 +18,7 @@ function remove {
    return;
   fi
 
-  cp -rp "$path" "${path}".bak && rm "$path"
+  cp -rp "$path" "${path}".bak && rm "$path" || echo "failed to remove $path"
 }
 
 function install {
