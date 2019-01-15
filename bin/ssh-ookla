@@ -1,1 +1,1 @@
-ssh marcvonholzen@localhost
+ssh -A marcvonholzen@localhost
