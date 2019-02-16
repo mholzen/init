@@ -13,9 +13,13 @@ echo "Install from $srcdir to $todir"
 function remove {
   path="$1"
 
-  if [[ ! -a $path ]]; then
-    # file does not exist: nothing to remove
-   return;
+  if [[ -L "$path" ]]; then  # symlink
+    rm "$path"
+    return
+  fi
+
+  if [[ ! -a $path ]]; then  # files does not exist
+   return
   fi
 
   cp -rp "$path" "${path}".bak && rm "$path" || echo "failed to remove $path"
