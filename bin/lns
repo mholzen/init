@@ -1,0 +1,12 @@
+#!/bin/bash
+
+target=$1
+
+if [ -z "$target" ]; then
+  target="."
+fi
+
+while read line; do
+  echo ln -s "$line" "$target"
+  ln -s "$line" "$target"
+done
