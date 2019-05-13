@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cmd=$(basename $0)
+target=$1
+
+if [[ $cmd == "ln"* ]]; then
+  cmd="ln -s"
+elif [[ $cmd == "mv"* ]]; then
+  cmd="mv"
+else
+  echo "Unknown command name '$cmd'"
+  exit 1
+fi
+
+if [ -z "$target" ]; then
+  target="."
+fi
+
+while read line; do
+  echo $cmd "$line" "$target"
+  $cmd "$line" "$target"
+done
