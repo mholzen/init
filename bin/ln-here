@@ -7,6 +7,8 @@ if [[ $cmd == "ln"* ]]; then
   cmd="ln -s"
 elif [[ $cmd == "mv"* ]]; then
   cmd="mv"
+elif [[ $cmd == "cp"* ]]; then
+  cmd="cp"
 else
   echo "Unknown command name '$cmd'"
   exit 1
