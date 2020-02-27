@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tcpdump --snapshot-length=1024 -w out.pcap port 8080
