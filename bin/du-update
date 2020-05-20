@@ -11,7 +11,7 @@ test -r $dufile || touch $dufile
 function update {
   {
     grep -v "$dir" $dufile;
-    ( cd / ; du -k $dir );
+    ( cd / ; du -k "$dir" );
   } | sort -rn | tee $dufile
 }
 

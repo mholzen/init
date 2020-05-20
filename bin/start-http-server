@@ -1,4 +1,2 @@
-#!/bin/bash
-
-forever start $(which http-server) -- ~
-
+cd ~
+python -m SimpleHTTPServer 8000

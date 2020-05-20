@@ -1,0 +1,1 @@
+awk '{print $2}' | grep -E '^(\d+)$' | tee | xargs kill -9
