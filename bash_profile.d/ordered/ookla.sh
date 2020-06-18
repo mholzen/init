@@ -15,3 +15,5 @@ export PATH="$PATH:${HOME}/develop/teamookla/android-sdk-macosx/platform-tools"
 
 # Speedtestnet
 PATH=$PATH:$DEV/speedtestnet/vendor/phpunit/phpunit
+
+PATH=$PATH:$DEV/jira/
