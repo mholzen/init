@@ -1,1 +1,8 @@
-psatop | head -2 | tail -1 | awk '{print $2}' | xargs kill -9
+lines=$(psatop | head -2)
+pid=$(echo "$lines" | tail -1 | awk '{print $2}')
+
+echo "$lines"
+echo 
+echo "kill -9 $pid"
+
+#kill -9 $pid
