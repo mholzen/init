@@ -1,0 +1,1 @@
+git status -s | grep -E '^ M' | awk '{print $2}' | head -1
