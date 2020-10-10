@@ -65,23 +65,53 @@
         "command": "-workbench.action.previousEditor"
     },
     {
-        "key": "shift+cmd+]",
+        "key": "cmd+]",
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
     {
-        "key": "alt+cmd+right",
-        "command": "-workbench.action.terminal.focusNextPane",
+        "key": "cmd+shift+]",
+        "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
     {
-        "key": "shift+cmd+[",
+        "key": "cmd+[",
         "command": "workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus"
     },
     {
-        "key": "alt+cmd+left",
-        "command": "-workbench.action.terminal.focusPreviousPane",
+        "key": "cmd+shift+[",
+        "command": "workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus"
     }
+
+    /* cursor after search */
+    { "key": "down", "command": "-history.showNext", },
+    { "key": "up", "command": "-history.showPrevious", },
+
+    {
+        "key": "up",
+        "command": "search.focus.previousInputBox",
+        "when": "inputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "down",
+        "command": "search.focus.nextInputBox",
+        "when": "inputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "up",
+        "command": "search.focus.previousInputBox",
+        "when": "firstMatchFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "search.focus.previousInputBox",
+        "when": "searchViewletVisible"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "search.focus.nextInputBox",
+        "when": "searchViewletVisible"
+    },
 ]
