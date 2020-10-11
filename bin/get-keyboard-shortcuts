@@ -1,0 +1,7 @@
+for f in ~/data/do/use-computers/use-keyboard/*.txt; do
+    echo \# $(basename $f .txt)
+    echo
+    cat $f
+    echo
+    echo
+done

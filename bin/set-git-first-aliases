@@ -1,0 +1,3 @@
+alias a='git-add-first; git-diff-first'
+alias d='git-diff-first'
+alias e='edit-first'
