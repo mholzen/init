@@ -17,4 +17,4 @@ else
   path=$(find-source "$resource")
 fi
 
-atom "$path"
+code "$path"
