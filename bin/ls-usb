@@ -1,1 +1,1 @@
-ioreg -p IOUSB -l
+ioreg -p IOUSB

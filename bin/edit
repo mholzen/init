@@ -1,14 +1,16 @@
 #!/bin/bash
 
-if [ -z "$@" ]; then
+arg="$*"     # "$@" expands to "$1" "$2" "$3"
+
+if [ -z "$arg" ]; then
   git=`findup .git`
   if [ "$git" ]; then
-    resource=`dirname "$git"`
+    file=`dirname "$git"`
   else
-    resource=.
+    file=.
   fi
 else
-  resource="$@"
+  resource="$*"
 fi
 
 if [ -r "$resource" ]; then

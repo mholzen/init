@@ -1,4 +1,9 @@
 #!/bin/bash
 
 source=$(find-source "$@")
+if [ -z "$source" ]; then
+    echo No source found for "$@"
+    exit 1
+fi
+echo $source
 edit $source

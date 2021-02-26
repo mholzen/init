@@ -1,1 +1,1 @@
-complete -F _command get
+# complete -F _command get

@@ -27,12 +27,15 @@ search-functions() {
 #
 if [[ $HOSTNAME == "ookla.local" || $HOSTNAME == "base.local" ]]; then
   colorOn='\[\033[35m\]'    # Magenta
+  colorOn='%F{magenta}'
 else
   colorOn='\[\033[36m\]'    # Cyan
+  colorOn='%F{cyan}'
 fi
 
 # Color off
 colorOff='\[\033[0m\]'
+colorOff='%f'
 
 function cwd_physical_short() {
   local p=$(pwd -P)
@@ -51,10 +54,14 @@ function set-title-pwd {
   set-title $(basename $PWD)
 }
 
-if [ "$ITERM_PROFILE" == "Hotkey Window" ]; then
+if [[ "$ITERM_PROFILE" == "Hotkey Window" ]]; then
   PS1="> "
 else
-  PS1="$colorOn\u@\h:"'$(cwd_physical_short)\n$(git_branch) '"$colorOff"
+  setopt PROMPT_SUBST
+  PS1="$colorOn%n@%m:"'$(cwd_physical_short)'$'\n''$(git_branch) '"$colorOff"
   # PS1+='$(set-title-pwd)'
+
+  # show exit code of last command
+  # PS1='%(?.√.?%?) '$PS1 
 fi
 export PS1

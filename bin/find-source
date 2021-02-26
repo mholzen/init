@@ -1,3 +1,22 @@
 #!/bin/bash
 
-find-resource "$@"
+# set -v
+
+file="$@"
+
+# develop=$(locate -l1 "$HOME/*develop*/*$file")
+develop=$(find $HOME/develop -name "$file"  -print -quit)
+
+if [ -z "$develop" ]; then
+    echo "can't find $file"
+    exit 1
+fi
+
+echo "$develop"
+exit
+
+dirname=$(dirname "$develop")
+repo=$(findup .git "$dirname")
+repo=$(dirname $repo)
+
+echo $repo
