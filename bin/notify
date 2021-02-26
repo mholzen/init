@@ -1,1 +1,1 @@
-/usr/bin/osascript -e "display notification \"$*\""
+/usr/bin/osascript -e "display notification \"$*\" with title \"Note\""
