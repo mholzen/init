@@ -1,0 +1,1 @@
+curl -s -H 'Accept: application/json' https://www.speedtest.net/api/embed/trial/config  | jq .

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AboutToPasteTabsWithCancel</key>
+	<true/>
+	<key>AboutToPasteTabsWithCancel_selection</key>
+	<integer>0</integer>
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
@@ -206,6 +210,8 @@
 	<string>{799, 448}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
 	<string>{712, 521}</string>
+	<key>NSOverlayScrollersFallBackForAccessoryViews</key>
+	<false/>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -264,9 +270,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>353 564 928 394 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 263 1377 787 0 0 2560 1440 </string>
+	<string>627 489 1305 787 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 1273 1440 0 0 2560 1440 </string>
+	<string>317 336 1785 1027 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>658 209 1306 788 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -4107,14 +4113,17 @@
 	<array>
 		<string>3.3.2beta1</string>
 		<string>3.3.0beta11</string>
+		<string>3.3.12beta1</string>
 		<string>3.3.7</string>
 		<string>3.3.10beta3</string>
 		<string>3.3.0beta10</string>
+		<string>3.4.0beta3</string>
 		<string>3.3.11beta1</string>
 		<string>3.3.7beta3</string>
 		<string>3.3.5beta2</string>
 		<string>3.3.10beta2</string>
 		<string>3.3.3beta1</string>
+		<string>3.4.0beta1</string>
 		<string>3.3.0beta16</string>
 		<string>3.3.7beta1</string>
 		<string>3.3.8beta5</string>
@@ -4125,6 +4134,7 @@
 		<string>3.3.8</string>
 		<string>3.3.4beta1</string>
 		<string>3.3.0beta14</string>
+		<string>3.4.0beta4</string>
 		<string>3.3.8beta1</string>
 		<string>3.3.7beta4</string>
 		<string>3.3.4</string>
@@ -4132,10 +4142,13 @@
 		<string>3.3.3beta2</string>
 		<string>3.3.0beta13</string>
 		<string>3.3.1beta1</string>
+		<string>3.3.12beta3</string>
+		<string>3.4.0beta2</string>
 		<string>3.3.7beta2</string>
 		<string>3.3.0</string>
 		<string>3.3.5beta1</string>
 		<string>3.3.0beta12</string>
+		<string>3.3.12beta2</string>
 		<string>3.3.8beta4</string>
 		<string>3.3.10beta4</string>
 		<string>3.3.9</string>
@@ -4167,12 +4180,18 @@
 	<true/>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
+	<key>NoSyncIgnoreSystemWindowRestoration</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>34A178D5-D792-40CB-BB94-37D67AF856EE</string>
+	<key>NoSyncLastOSVersion</key>
+	<string>Version 10.15.6 (Build 19G2021)</string>
 	<key>NoSyncLastTipTime</key>
 	<real>483292320.80567998</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>119</integer>
+	<integer>134</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -4306,6 +4325,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>selectionLength</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>path</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -4325,6 +4352,14 @@
 				<string>triggerName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<false/>
+				<key>name</key>
+				<string>parentSession</string>
+				<key>nonterminalContext</key>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>isTerminal</key>
@@ -4443,6 +4478,14 @@
 				<true/>
 				<key>name</key>
 				<string>tmuxStatusLeft</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>selection</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -4913,6 +4956,8 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncRestoreWindowsCount</key>
+	<integer>0</integer>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>477855516.73778898</real>
 	<key>NoSyncTimeOfLastPromo</key>
@@ -5033,15 +5078,15 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing_new.xml?shard=25</string>
+	<string>https://iterm2.com/appcasts/testing_modern.xml?shard=25</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-05-31T19:31:35Z</date>
+	<date>2020-09-01T19:30:41Z</date>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>1400490971</integer>
+	<integer>2378516743</integer>
 	<key>SUUpdateRelaunchingMarker</key>
-	<false/>
+	<true/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -5101,7 +5146,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.11beta1</string>
+	<string>3.4.0beta4</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
