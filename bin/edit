@@ -4,10 +4,10 @@ arg="$*"     # "$@" expands to "$1" "$2" "$3"
 
 if [ -z "$arg" ]; then
   git=`findup .git`
-  if [ "$git" ]; then
-    file=`dirname "$git"`
+  if [ ! -z "$git" ]; then
+    resource=`dirname "$git"`
   else
-    file=.
+    resource="."
   fi
 else
   resource="$*"
@@ -19,4 +19,5 @@ else
   path=$(find-source "$resource")
 fi
 
+echo code "$path"
 code "$path"

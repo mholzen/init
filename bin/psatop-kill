@@ -5,4 +5,4 @@ echo "$lines"
 echo 
 echo "kill -9 $pid"
 
-#kill -9 $pid
+kill -9 $pid
