@@ -1,12 +1,10 @@
 # Bash
 alias ls='ls -F'
-alias h='history'
-alias tm='mate'
-alias e='edit'
-alias o='open'
-alias py='python'
-alias pyd='python -m pdb'
-alias mg='py manage.py'
+alias h=history
+alias tm=mate
+alias e=edit
+alias f=find-name
+alias o=open
 
 setup() {
     cwd=`pwd`

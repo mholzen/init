@@ -1,7 +1,9 @@
-for f in ~/data/do/use-computers/use-keyboard/*.txt; do
-    echo \# $(basename $f .txt)
-    echo
-    cat $f
+for f in ~/data/do/use-computers/use-keyboard/*.md; do
+    (
+        echo \# $(basename $f .md)
+        echo
+        cat $f
+    ) | tty-markdown
     echo
     echo
 done
