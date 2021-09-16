@@ -1,0 +1,3 @@
+file=$(lr1 ~/ookla-data/Ookla\ Org\ Chart*.pdf)
+echo "$file"
+open "$file"

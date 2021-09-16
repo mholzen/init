@@ -1,0 +1,1 @@
+jq -r '[.login, .user.name, .user.email, .user.html_url ] | @csv'
