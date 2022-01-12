@@ -1,6 +1,8 @@
-PATH=$HOME/develop/mholzen/log/bin:$PATH
-PATH=$HOME/develop/mholzen/system/bin:$PATH
-PATH=$HOME/develop/mholzen/visualize/bin:$PATH
-PATH=$HOME/.bash/bin:$PATH
+PATH=./bin:\
+$HOME/develop/mholzen/log/bin:\
+$HOME/develop/mholzen/system/bin:\
+$HOME/develop/mholzen/visualize/bin:\
+$HOME/.bash/bin:$PATH
 
 export PATH
+

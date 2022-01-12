@@ -1,1 +1,2 @@
-lr1 ~/Downloads
+cd ~/Downloads
+realpath "$(lr1)"
