@@ -1,0 +1,8 @@
+separator=${1-:}    # default to ':' if unset
+
+awk '{
+  split($0, array, "'$separator'");
+  for (key in array) {
+    print array[key]
+  }
+}'
