@@ -1,0 +1,7 @@
+echo \# filenames
+find-name "$1"
+
+echo
+
+echo \# content
+grep -r "$1" .
