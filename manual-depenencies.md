@@ -1,3 +1,3 @@
 # Manual dependencies
 
-sudo gem install tty-markdown-cli
+sudo gem install glow
