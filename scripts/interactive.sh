@@ -20,6 +20,8 @@ search-functions() {
   declare -f | less $lessOption
 }
 
+source ~/.bash/functions/*
+
 #
 # prompt
 #
