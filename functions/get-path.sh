@@ -1,3 +1,3 @@
-function echo-path {
+function get-path {
   echo $PATH | split-line
 }

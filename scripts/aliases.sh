@@ -1,10 +1,15 @@
 # Bash
+alias ls='ls -F'
+alias h=history
+alias e=edit
+alias f=find-name
+alias o=open
 alias h=history
 alias s=search
+
 alias chrome='open -a /Applications/Google\ Chrome.app'
 alias open-with-chrome='chrome'
 alias reveal=which
-alias functions='declare -f'
 alias python-debug='python -m pdb'
 alias debug-python=python-debug
 
