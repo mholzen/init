@@ -1,3 +1,12 @@
+# define word boundary for backward-kill-word
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+## consider
+### autoload -U select-word-style
+### select-word-style bash
+
+
+
 # Other files
 for f in $HOME/.bash/functions/*; do
   source $f
