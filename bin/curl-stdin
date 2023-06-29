@@ -1,0 +1,3 @@
+read address
+url=$(echo $address | to-url)
+curl $* "$url"

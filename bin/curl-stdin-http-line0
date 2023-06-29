@@ -1,0 +1,1 @@
+curl-stdin -s -i --max-time 2 | head -1

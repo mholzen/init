@@ -1,0 +1,36 @@
+#!/bin/sh
+
+mapper=$1
+
+if [ -z "$mapper" ]; then
+  echo "$0 <mapper>"
+  exit 1
+fi
+
+function getIndex() {
+  local index=${1}
+  local li
+  while read li; do
+    index=$((index - 1))
+    if [[ "$index" -eq 0 ]]; then
+      echo $li
+      return
+    fi
+  done
+}
+
+function lineSplit() {
+  local split=${1}
+  while read -d $split element; do
+    echo $element
+  done
+}
+
+while read line; do
+  # echo $line | sh -c "$mapper"
+  # echo $line
+  # echo $line | lineSplit , | getIndex 7
+  arg="$line"
+  output=$(stat-json.js "$line")
+  echo '{"arg":"'"$line"'", "output":'$output'}'
+done

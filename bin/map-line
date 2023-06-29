@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cmd=$1
+
+while read -r input; do      # TODO: should return if stdin in closed
+
+  # input=$(echo $input) # | jq tostring)
+  # echo "in: $input" # TODO: control troubleshooting streams
+
+  output=$(echo -n $input | $cmd | sed 's/\r$//g')
+  # TODO: control duration of execution
+
+  json_output=$(echo $output | sed 's/"/\\"/g')
+  echo '{"input":"'"$input"'","output":"'"$json_output"'"}'
+
+done

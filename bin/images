@@ -1,1 +1,1 @@
-search in:~/images "$@"
+open ~/images
