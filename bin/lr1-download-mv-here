@@ -1,1 +1,1 @@
-lr1-download | mv-here
+lr1-download | mv-here "$1"

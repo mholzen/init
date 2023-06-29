@@ -1,1 +1,1 @@
-cat ~/teamookla/sql/README.md
+cat ~/teamookla/sql/README.md | glow -
