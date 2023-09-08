@@ -15,3 +15,4 @@ alias debug-python=python-debug
 
 # Copy the current working directory so that I can paste or use pbpaste with it
 alias copy-cwd='echo -n `pwd` | pbcopy'
+alias nvm-setup='source ~/.nvm/nvm.sh'
