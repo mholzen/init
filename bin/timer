@@ -1,0 +1,14 @@
+#!/bin/sh
+
+arg=$1
+if [ -z "$arg" ]; then
+	echo "Usage: $0 <minutes>"
+	exit 1
+fi
+
+minutes=$((arg * 60))
+
+( sleep $minutes && say "$arg minute timer ended" ) &
+
+echo "Timer started for $arg minute(s)"
+

@@ -1,0 +1,1 @@
+yq eval -o json $1 
