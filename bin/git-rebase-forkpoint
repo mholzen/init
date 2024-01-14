@@ -1,0 +1,12 @@
+branch=$1
+if [ -z "$branch" ]; then
+	echo "Starts an interactive rebase against the fork point of the current branch."
+	echo "Usage: $(basename $0) <branch-to-rebase-against>"
+	exit 1
+fi
+forkpoint=$(git merge-base --fork-point $branch)
+if [ -z "$forkpoint" ]; then
+	echo "cannot determine fork point"
+	exit 2
+fi
+git rebase -i $forkpoint
