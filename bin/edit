@@ -19,5 +19,5 @@ else
   path=$(find-source "$resource")
 fi
 
-echo code "$path"
-code "$path"
+echo cursor "$path"
+cursor "$path"
