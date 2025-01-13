@@ -4,7 +4,7 @@ files=(
   nvm.sh
   node.sh
   ookla.sh
-  local.sh
+  homebrew.sh
   python.sh
   # disabling macport because of conflict with node (uninstalling macport requires updating it)
   # macports.sh

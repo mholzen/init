@@ -1,0 +1,9 @@
+-- shortcut for command+shift+enter
+
+on alfred_script(q)
+
+tell application "Workflowy"
+    keystroke "Hello, world!"
+end tell
+
+end alfred_script

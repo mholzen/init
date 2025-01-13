@@ -2,13 +2,17 @@
 
 cmd="$1"
 
-osascript -e 'tell application "iTerm2"
+script="
+tell application \"iTerm2\"
     tell current session of current window
         set newSession to split vertically with default profile
-        if "'$cmd'" is not equal to "" then
+        if \"'$cmd'\" is not equal to \"\" then
             tell newSession
-                write text "'$cmd'"
+                write text \"$cmd\"
             end tell
         end if
     end tell
-end tell'
+end tell
+"
+
+osascript -e "$script"

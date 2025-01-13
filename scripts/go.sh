@@ -1,8 +1,12 @@
-export PATH="/usr/local/go/bin:$PATH"
+# From https://golang.org/doc/install
+# GOPATH default is $HOME/go
 
-# export GOPATH="${HOME}/.go" # update path as wanted
+# `go install places binaries in $GOPATH/bin
+export PATH="${PATH}:${HOME}/go/bin"
+
+# export GOPRIVATE="github.com/teamookla/*" # required with v >1.13
+
+# From Homebrew
+# NOTE: doesn't seen to install the ARM64 version
 # export GOROOT="$(brew --prefix golang)/libexec"
-# export GOROOT="/usr/local/opt/go/libexec"
-export GOROOT="/usr/local/go/"
-export GOPRIVATE="github.com/teamookla/*" # required with v >1.13
-# export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+# go at /usr/local/bin/go
