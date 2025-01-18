@@ -1,0 +1,11 @@
+#!/bin/bash
+name=${1}
+
+if [ -z "${name}" ]; then
+    echo "Usage: get <name>"
+    exit 1
+fi
+
+file=$(which ${name})
+
+cat ${file}
