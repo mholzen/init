@@ -1,1 +1,1 @@
-ps auxw -c -o ppid
+ps auxw -O ppid

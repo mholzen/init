@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Usage: ./find_recent.sh [duration]
+#   duration: The duration to search for in the past (e.g., 1d, 2h, 30m)
+
+directory="."
+duration=${1:-"1d"}
+
+abs_directory=$directory #$ $(cd "$directory" && pwd)
+
+if [[ "$duration" =~ ^([0-9]+)([dhm])$ ]]; then
+    number="${BASH_REMATCH[1]}"
+    unit="${BASH_REMATCH[2]}"
+else
+  echo "Error: Invalid time format for --since. Use format like 1d, 2h, 30m"
+  exit 1
+fi
+
+case "$unit" in
+  d) unit_seconds=86400 ;;
+  h) unit_seconds=3600 ;;
+  m) unit_seconds=60 ;;
+esac
+
+duration_seconds=$((number * unit_seconds))
+
+mdfind -onlyin . '(kMDItemFSContentChangeDate >= $time.now(-'${duration_seconds}') || kMDItemContentCreationDate >= $time.now(-'${duration_seconds}'))' | sort-by-mtime

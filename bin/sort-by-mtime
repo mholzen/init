@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -t 0 ]; then  # is stdin connected to a terminal
+  echo "Error: No input provided. Pipe a list of files to this script." >&2
+  echo "Usage: command-that-outputs-files | sort-by-mtime" >&2
+  exit 1
+fi
+
+while IFS= read -r file; do
+  [ -z "$file" ] && continue
+  
+  if [ -e "$file" ]; then
+    stat -f "%m %N" "$file" 2>/dev/null
+  fi
+done | sort -nr | cut -d' ' -f2-
