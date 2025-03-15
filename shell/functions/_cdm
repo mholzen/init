@@ -1,0 +1,56 @@
+#compdef cdm
+
+# ZSH completion function for cdm command
+# This provides autocompletion for directories within ~/develop/mholzen
+
+_cdm() {
+  local base_dir="$HOME/develop/mholzen"
+  local cur_word="${words[CURRENT]}"
+  local prev_words="${words[1,CURRENT-1]}"
+  
+  # Check if the base directory exists
+  if [[ ! -d "$base_dir" ]]; then
+    _message "Base directory $base_dir does not exist"
+    return 1
+  fi
+  
+  # Make sure _describe is available
+  if ! typeset -f _describe > /dev/null; then
+    autoload -Uz _describe
+  fi
+  
+  # If we already have some path components, handle them
+  if [[ -n "$prev_words" && "$prev_words" != "cdm" ]]; then
+    # Extract the path so far (everything after "cdm")
+    local path_so_far="${prev_words#cdm }"
+    local full_path="$base_dir/$path_so_far"
+    
+    # If it's a directory, complete its subdirectories
+    if [[ -d "$full_path" ]]; then
+      local -a subdirs
+      subdirs=("$full_path"/*(/:t))
+      
+      # Use compadd directly if _describe is not available
+      if typeset -f _describe > /dev/null; then
+        _describe -t directories "subdirectories" subdirs
+      else
+        compadd -a subdirs
+      fi
+      return
+    fi
+  else
+    # First argument - complete with top-level directories
+    local -a subdirs
+    subdirs=("$base_dir"/*(/:t))
+    
+    # Use compadd directly if _describe is not available
+    if typeset -f _describe > /dev/null; then
+      _describe -t directories "directories in ~/develop/mholzen" subdirs
+    else
+      compadd -a subdirs
+    fi
+  fi
+}
+
+# Don't call the function directly here
+# _cdm "$@" 

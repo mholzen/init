@@ -1,0 +1,9 @@
+# Interactive login       => .bash_profile	=> will source ~/.scripts/*.sh
+# Interactive,non-login   => .bashrc 		=> nothing needed at this point
+# Non-interactive         => $BASH_ENV 		=> removed. Used to source ~/.bash_non_interactive.d/*.sh
+
+for file in ~/.init/shell/interactive/*; do
+	if [ -f $file ]; then
+		source $file;
+	fi
+done

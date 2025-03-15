@@ -6,19 +6,10 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 ### select-word-style bash
 
 
-
 # Other files
-for f in $HOME/.bash/functions/*; do
+for f in $HOME/.init/shell/functions/*; do
   source $f
 done
-
-setup() {
-    cwd=`pwd`
-    for fn in `findup .setup`; do
-        source $fn
-    done
-    cd $cwd
-}
 
 # Search functions
 alias get-functions='declare -f'
