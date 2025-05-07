@@ -1,0 +1,13 @@
+#!/bin/bash
+
+search_term="$1"
+
+osascript <<EOF
+set searchTerm to "$(python3 -c 'import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))' "$search_term")"
+set searchURL to "itms://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?term=" & searchTerm
+
+tell application "Music"
+	activate
+	open location searchURL
+end tell
+EOF

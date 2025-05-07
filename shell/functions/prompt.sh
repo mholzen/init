@@ -54,7 +54,7 @@ else
   # PS1+='$(set-title-pwd)'
 
   # show exit code of last command
-  # PS1='%(?.√.?%?) '$PS1 
+  # PS1='%(?.√.?%?) '$PS1
 fi
 export PS1
 
