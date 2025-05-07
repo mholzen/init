@@ -1,0 +1,1 @@
+brew install --dry-run $(cat packages-desired.txt)
