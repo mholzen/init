@@ -1,1 +1,1 @@
-git stash save -u --keep-index
+git stash save --include-untracked --keep-index

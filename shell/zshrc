@@ -2,8 +2,13 @@
 # Interactive,non-login   => .bashrc 		=> nothing needed at this point
 # Non-interactive         => $BASH_ENV 		=> removed. Used to source ~/.bash_non_interactive.d/*.sh
 
+# fpath=(~/.zsh/completion $fpath)
+autoload -U compinit
+compinit
+
 for file in ~/.init/shell/interactive/*; do
 	if [ -f $file ]; then
 		source $file;
 	fi
 done
+
