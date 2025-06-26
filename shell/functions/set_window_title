@@ -1,0 +1,21 @@
+set_window_title() {
+    local title
+
+    # Check if we're in a git repository (faster than calling git executable)
+    local git_dir="$PWD"
+    while [[ "$git_dir" != "/" ]]; do
+        if [[ -d "$git_dir/.git" ]]; then
+            title="${git_dir:t}"  # zsh equivalent of ${var##*/}
+            break
+        fi
+        git_dir="${git_dir:h}"    # zsh equivalent of dirname
+    done
+
+    # If not in git repo, use current directory name
+    if [[ -z "$title" ]]; then
+        title="${PWD:t}"
+    fi
+
+    # Set the title using zsh's print builtin
+    print -n "\033]0;${title}\007"
+}
