@@ -1,0 +1,3 @@
+# finds the best common ancestor(s) between two commits to use in a three-way merge
+git merge-base main HEAD
+
