@@ -12,3 +12,4 @@ node
 ollama
 python-setuptools
 qemu
+trufflehog
