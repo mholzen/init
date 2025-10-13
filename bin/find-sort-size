@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Find all files in current directory and subdirectories, then sort by size
+# Largest files first
+
+find . -type f -exec ls -lS {} + | sort -k5 -nr

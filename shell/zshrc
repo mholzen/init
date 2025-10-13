@@ -12,3 +12,4 @@ for file in ~/.init/shell/interactive/*; do
 	fi
 done
 
+export PATH="$HOME/.local/bin:$PATH"

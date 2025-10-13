@@ -1,1 +1,1 @@
-echo "$(cd "$(dirname "$@")"; pwd)/$(basename "$@")"
+/opt/homebrew/bin/grealpath

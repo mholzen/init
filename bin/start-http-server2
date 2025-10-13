@@ -1,0 +1,24 @@
+cd ~
+python3 <<EOF
+
+# cors_server.py
+from http.server import SimpleHTTPRequestHandler, HTTPServer
+from functools import partial
+import sys, os
+
+class CORS(SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "*")
+        super().end_headers()
+
+    def do_OPTIONS(self):
+        self.send_response(204)  # No Content
+        self.end_headers()
+
+port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
+directory = sys.argv[2] if len(sys.argv) > 2 else os.getcwd()
+HTTPServer(("", port), partial(CORS, directory=directory)).serve_forever()
+
+EOF
