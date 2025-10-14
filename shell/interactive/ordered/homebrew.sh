@@ -1,5 +1,5 @@
 # For homebrew
-if which brew >/dev/null 2>&1; then
+if [ -r /opt/homebrew/bin/brew ]; then
     export PATH=${PATH}:/opt/homebrew/bin:/usr/local/bin
 fi
 
