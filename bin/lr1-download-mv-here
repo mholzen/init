@@ -1,1 +1,4 @@
-lr1-download | mv-here "$1"
+#!/bin/sh
+
+# ensure lr1-download doesn't fail because there are no files
+out=$(lr1-download) && printf '%s\n' "$out" | mv-here

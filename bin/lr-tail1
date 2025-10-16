@@ -1,8 +1,19 @@
 #!/bin/bash
 
-# if [ -d "$@" ]; then cd "$@"; fi
-# realpath "$(ls -rt1 | tail -1)"
+if [ -d "$@" ]; then
+  cd "$@"
+else
+  echo "$@ is not a directory"
+  echo "Usage: lr1 [<dir>]"
+  exit 1
+fi
 
 item=$(lr "$@" | tail -1)
 
+if [ -z "$item" ]; then
+  echo "No item found"
+  exit 1
+fi
+
 realpath "$item"
+

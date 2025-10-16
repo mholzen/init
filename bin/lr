@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # TODO: use find so that the pathname is included
 
 ls -rt1 "$@"
