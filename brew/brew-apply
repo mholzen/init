@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+
+if [ "${1:-}" = "--dry-run" ]; then
+  brew bundle check --verbose || true
+  echo ""
+  brew bundle cleanup || true
+else
+  brew bundle install
+  brew bundle cleanup --force
+fi

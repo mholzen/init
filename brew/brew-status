@@ -1,0 +1,20 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "=== To be installed (new packages) ==="
+brew bundle check --verbose --no-upgrade 2>&1 | grep "^→" || echo "None"
+
+echo ""
+echo "=== To be upgraded/downgraded ==="
+comm -13 \
+  <(brew bundle check --verbose --no-upgrade 2>&1 | grep "^→" | sort) \
+  <(brew bundle check --verbose 2>&1 | grep "^→" | sort) || echo "None"
+
+echo ""
+echo "=== To be removed (not in Brewfile) ==="
+output=$(brew bundle cleanup 2>&1 | grep -v "^Run " || true)
+if [ -z "$output" ]; then
+  echo "None"
+else
+  echo "$output"
+fi
