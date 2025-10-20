@@ -1,19 +1,24 @@
 set-window-title() {
     local title
 
-    # Check if we're in a git repository (faster than calling git executable)
-    local git_dir="$PWD"
-    while [[ "$git_dir" != "/" ]]; do
-        if [[ -d "$git_dir/.git" ]]; then
-            title="${git_dir:t}"  # zsh equivalent of ${var##*/}
-            break
-        fi
-        git_dir="${git_dir:h}"    # zsh equivalent of dirname
-    done
+    # If a custom session title is set, use it
+    if [[ -n "$ITERM_SESSION_TITLE" ]]; then
+        title="$ITERM_SESSION_TITLE"
+    else
+        # Check if we're in a git repository (faster than calling git executable)
+        local git_dir="$PWD"
+        while [[ "$git_dir" != "/" ]]; do
+            if [[ -d "$git_dir/.git" ]]; then
+                title="${git_dir:t}"  # zsh equivalent of ${var##*/}
+                break
+            fi
+            git_dir="${git_dir:h}"    # zsh equivalent of dirname
+        done
 
-    # If not in git repo, use current directory name
-    if [[ -z "$title" ]]; then
-        title="${PWD:t}"
+        # If not in git repo, use current directory name
+        if [[ -z "$title" ]]; then
+            title="${PWD:t}"
+        fi
     fi
 
     # Set the title using zsh's print builtin
@@ -21,6 +26,20 @@ set-window-title() {
 }
 
 set-title() {
-    set-window-title "$1"
+    if [[ -n "$1" ]]; then
+        export ITERM_SESSION_TITLE="$1"
+        set-window-title
+    else
+        unset ITERM_SESSION_TITLE
+        set-window-title
+    fi
 }
 
+clear-title() {
+    unset ITERM_SESSION_TITLE
+    set-window-title
+}
+
+unset-title() {
+    clear-title
+}
