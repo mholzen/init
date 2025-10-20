@@ -4,6 +4,8 @@ files=(
   node.sh
   homebrew.sh
   python.sh
+  ruby.sh
+  nvm.sh
 )
 
 for file in "${files[@]}"; do
