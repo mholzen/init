@@ -1,17 +1,22 @@
 #!/bin/bash
 
-if [ -d "$@" ]; then
-  cd "$@"
+dir="$1"
+if [ -z "$dir" ]; then
+  dir="."
+fi
+
+if [ -d "$dir" ]; then
+  cd "$dir"
 else
-  echo "$@ is not a directory"
+  echo "$dir is not a directory"
   echo "Usage: lr1 [<dir>]"
   exit 1
 fi
 
-item=$(lr "$@" | tail -1)
+item=$(lr "$dir" | tail -1)
 
 if [ -z "$item" ]; then
-  echo "No item found"
+  echo "Error: no files found in directory $dir"
   exit 1
 fi
 

@@ -1,5 +1,15 @@
 #!/bin/bash
 
-# TODO: use find so that the pathname is included
+dir="$1"
+if [ -z "$dir" ]; then
+  dir="."
+fi
 
-ls -rt1 "$@"
+if [ ! -d "$dir" ]; then
+  echo "$dir is not a directory"
+  echo "Usage: lr [<dir>]"
+  exit 1
+fi
+
+# github.com/mholzen/find-sort
+find-sort "$dir"
