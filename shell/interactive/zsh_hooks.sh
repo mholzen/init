@@ -4,9 +4,9 @@
 if [[ -n "$ZSH_VERSION" ]]; then
     # Function to update title on directory change
     chpwd() {
-        set_window_title
+        set-window-title
     }
 
     # Set initial title when shell starts
-    set_window_title
+    set-window-title
 fi

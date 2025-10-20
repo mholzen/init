@@ -1,4 +1,4 @@
-set_window_title() {
+set-window-title() {
     local title
 
     # Check if we're in a git repository (faster than calling git executable)
@@ -19,3 +19,8 @@ set_window_title() {
     # Set the title using zsh's print builtin
     print -n "\033]0;${title}\007"
 }
+
+set-title() {
+    set-window-title "$1"
+}
+
