@@ -15,3 +15,6 @@ ln -sf $srcdir/inputrc .inputrc
 
 # use zsh init script for bash
 ln -sf .zshrc .bash_profile
+
+chsh /bin/zsh
+
