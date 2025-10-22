@@ -18,7 +18,8 @@ if [ -z "$target" ]; then
   target="."
 fi
 
-while read line; do
-  echo $cmd "$line" "$target"
-  $cmd "$line" "$target"
+
+while IFS= read -r line || [[ -n "$line" ]]; do
+  echo "$cmd" "$line" "$target"
+  "$cmd" "$line" "$target"
 done
