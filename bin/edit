@@ -1,23 +1,30 @@
 #!/bin/bash
 
-arg="$*"     # "$@" expands to "$1" "$2" "$3"
+editor="cursor"
 
-if [ -z "$arg" ]; then
-  git=`findup .git`
-  if [ ! -z "$git" ]; then
-    resource=`dirname "$git"`
+# If no arguments, edit the git repo root or current directory
+if [ $# -eq 0 ]; then
+  git_dir=$(findup .git)
+  if [ ! -z "$git_dir" ]; then
+    dir=$(dirname "$git_dir")
   else
-    resource="."
+    dir="."
   fi
-else
-  resource="$*"
-fi
+  echo $editor "$dir"
+  $editor "$dir"
 
-if [ -r "$resource" ]; then
-  path=$resource
 else
-  path=$(find-source "$resource")
-fi
+  # Process each argument
+  sources=()
+  for arg in "$@"; do
+    if [ -r "$arg" ]; then
+      path="$arg"
+    else
+      path=$(find-source "$arg")
+    fi
+    sources+=("$path")
+  done
 
-echo cursor "$path"
-cursor "$path"
+  echo $editor "${sources[@]}"
+  $editor "${sources[@]}"
+fi
