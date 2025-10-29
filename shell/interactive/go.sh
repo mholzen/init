@@ -4,8 +4,6 @@
 # `go install places binaries in $GOPATH/bin
 export PATH="${PATH}:${HOME}/go/bin"
 
-# export GOPRIVATE="github.com/teamookla/*" # required with v >1.13
-
 # From Homebrew
 # NOTE: doesn't seen to install the ARM64 version
 # export GOROOT="$(brew --prefix golang)/libexec"

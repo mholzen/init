@@ -19,7 +19,7 @@ export COLOR_LIGHT_CYAN='\e[1;36m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 export COLOR_WHITE='\e[1;37m'
 
-if [[ $HOSTNAME == "ookla.local" || $HOSTNAME == "base.local" ]]; then
+if [[ $HOSTNAME == "base.local" ]]; then
   colorOn='\[\033[35m\]'    # Magenta
   colorOn='%F{magenta}'
   # colorOn=$COLOR_PRUPLE

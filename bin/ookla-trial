@@ -1,2 +1,0 @@
-./ookla --configurl=https://www.speedtest.net/api/embed/trial/config "$@"
-

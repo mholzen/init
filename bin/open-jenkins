@@ -1,7 +1,0 @@
-#!/bin/bash
-
-jenkins='https://jenkins.ookla.com:8443/job/'
-
-url=$jenkins$(git-repo)
-
-open $url

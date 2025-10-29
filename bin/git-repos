@@ -1,6 +1,0 @@
-#!/bin/sh
-
-user=$(git config --get user.email)
-org=teamookla
-
-curl --user $user --silent "https://api.github.com/orgs/$org/repos?per_page=200" | json -a name | sort

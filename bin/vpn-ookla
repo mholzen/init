@@ -1,1 +1,0 @@
-osascript -e 'tell application "Viscosity" to connect "ookla"'
