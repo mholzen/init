@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cat <<EOF
+# Links
+
+[Text](<url>)
+
+[Text](<url> "Title")
+
+[Text](url target="_blank")
+
+[``code``](#code)
+
+# Images
+
+![Text](<url>)
+
+![Text](<url> "Title")
+
+![Text](url target="_blank")
+
+EOF
