@@ -1,8 +1,9 @@
 #!/bin/sh
 
-cat <<EOF
+cat <<'EOF' | glow
 # Links
 
+```
 [Text](<url>)
 
 [Text](<url> "Title")
@@ -10,13 +11,18 @@ cat <<EOF
 [Text](url target="_blank")
 
 [``code``](#code)
+```
 
 # Images
 
+```
 ![Text](<url>)
 
 ![Text](<url> "Title")
 
 ![Text](url target="_blank")
+```
 
-EOF
+# Formatting
+
+`**bold**`
