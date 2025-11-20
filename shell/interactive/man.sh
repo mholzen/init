@@ -1,1 +1,1 @@
-export MANPAGER=~/.bash/bin/less
+export MANPAGER=~/.init/bin/less
