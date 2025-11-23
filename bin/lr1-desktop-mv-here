@@ -8,4 +8,4 @@ set -e
 # commands succeed.
 set -o pipefail
 
-lr1-download | mv-here
+lr1-desktop | mv-here
