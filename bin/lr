@@ -1,3 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
-ls -rtl "$@"
+dir="$1"
+if [ -z "$dir" ]; then
+  dir="."
+fi
+
+if [ ! -d "$dir" ]; then
+  echo "$dir is not a directory"
+  echo "Usage: lr [<dir>]"
+  exit 1
+fi
+
+# github.com/mholzen/find-sort
+find-sort --depth 1 "$dir"
