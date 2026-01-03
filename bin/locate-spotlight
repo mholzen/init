@@ -1,0 +1,9 @@
+#!/bin/sh
+
+mdfind -name "$@"
+
+# search by exact filename
+# mdfind 'kMDItemFSName == "signature.png"'
+
+# inspect whether a file is indexed /
+# mdls /path/to/file
