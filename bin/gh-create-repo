@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+if git remote get-url origin &>/dev/null; then
+    echo "origin already configured: $(git remote get-url origin)"
+    exit 1
+fi
+
+REPO_NAME=$(get-git-repo)
+
+gh repo create "$REPO_NAME" --source=. --remote=origin --push --private

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+arg="$1"
+
+base=$(findup Dropbox)
+base=${base%/}    # remove trailing slash
+
+
+pwd=$(realpath $(pwd))
+path=${pwd/$base/}. # remove pwd from the path
+path=${path%/}      # remove trailing slash
+
+url="https://www.dropbox.com/home$path"
+
+if [ ! -z "$arg" ]; then
+  url=$url/$arg
+fi
+
+open $url
