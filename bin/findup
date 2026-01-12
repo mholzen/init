@@ -8,10 +8,12 @@ fi
 
 # Starting directory
 if [ "$2" ]; then
-    dir=`(builtin cd "$2"; pwd)`
+    start_dir=`(builtin cd "$2"; pwd)`
 else
-    dir=`pwd`
+    start_dir=`pwd`
 fi
+
+dir=$start_dir
 
 while true; do
     if [ -e "$dir/$file" ]; then
@@ -20,6 +22,7 @@ while true; do
     fi
 
     if [ -z "$dir" ]; then
+	    echo "cannot find '$file' in paths from '$start_dir' to root" >&2
 	    exit 1
     fi
 
