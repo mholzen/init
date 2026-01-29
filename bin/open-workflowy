@@ -1,1 +1,4 @@
-open-workflowy.lua
+#!/bin/sh
+
+id=$(getup .workflowy) || exit 1
+open "https://workflowy.com/#/$id"
