@@ -1,10 +1,8 @@
 # Bash
 alias ls='ls -F'
-alias h=history
 alias e=edit
 alias f=find-name
 alias o=open
-alias h=history
 
 alias chrome='open -a /Applications/Google\ Chrome.app'
 alias open-with-chrome='chrome'
