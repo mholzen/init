@@ -11,9 +11,11 @@ sudo apt install dnsmasq
 ### Deploy configuration
 
 ```
-sudo cp dnsmasq.conf /etc/dnsmasq.conf
+sudo cp dnsmasq.conf /etc/dnsmasq.d/dnsmasq.conf
 sudo cp dnsmasq.hosts /etc/dnsmasq.hosts
 ```
+
+Note: config files go in `/etc/dnsmasq.d/`, but the hosts file goes in `/etc/dnsmasq.hosts` — files in `dnsmasq.d/` are parsed as config, not hosts format.
 
 ### Disable systemd-resolved (conflicts with dnsmasq on port 53)
 
@@ -58,7 +60,7 @@ Then reload: `sudo systemctl restart dnsmasq`
 
 ## Adding CNAME aliases
 
-Add to `/etc/dnsmasq.conf`:
+Add to `/etc/dnsmasq.d/dnsmasq.conf`:
 
 ```
 cname=alias,target.lan
