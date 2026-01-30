@@ -34,7 +34,7 @@ sudo systemctl enable --now dnsmasq
 ### Verify
 
 ```
-dig @127.0.0.1 ubuntu-1.lan
+dig @127.0.0.1 ubuntu-1.home
 dig @127.0.0.1 google.com
 ```
 
@@ -53,7 +53,7 @@ Clients will pick up the new DNS server on their next DHCP lease renewal. To for
 Add entries to `/etc/dnsmasq.hosts` in standard hosts file format:
 
 ```
-192.168.50.10  mydevice  mydevice.lan
+192.168.50.10  mydevice  mydevice.home
 ```
 
 Then reload: `sudo systemctl restart dnsmasq`
@@ -63,7 +63,7 @@ Then reload: `sudo systemctl restart dnsmasq`
 Add to `/etc/dnsmasq.d/dnsmasq.conf`:
 
 ```
-cname=alias,target.lan
+cname=alias,target.home
 ```
 
 Then reload: `sudo systemctl restart dnsmasq`
