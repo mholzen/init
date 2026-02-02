@@ -1,0 +1,15 @@
+#!/bin/bash
+
+PORT=$1
+
+if [ ! -z "$PORT" ]; then
+    arg="-iTCP:$PORT"
+fi
+
+pid=$(lsof -nP -sTCP:LISTEN $arg -t)
+if [ -z "$pid" ]; then
+    echo "No process found listening on port $PORT"
+    exit 1
+fi
+
+pstree -p $pid

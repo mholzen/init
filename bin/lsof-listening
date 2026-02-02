@@ -1,2 +1,9 @@
 #!/bin/bash
-lsof-network | grep LISTEN
+
+PORT=$1
+
+if [ ! -z "$PORT" ]; then
+    arg="-iTCP:$PORT"
+fi
+
+lsof -nP -sTCP:LISTEN $arg
