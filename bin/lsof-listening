@@ -6,4 +6,4 @@ if [ ! -z "$PORT" ]; then
     arg="-iTCP:$PORT"
 fi
 
-lsof -nP -sTCP:LISTEN $arg
+lsof -i -n -P -sTCP:LISTEN $arg
