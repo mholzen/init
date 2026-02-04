@@ -2,8 +2,10 @@
 
 PORT=$1
 
-if [ ! -z "$PORT" ]; then
+if [ -z "$PORT" ]; then
+    arg="-iTCP"
+else
     arg="-iTCP:$PORT"
 fi
 
-lsof -i -n -P -sTCP:LISTEN $arg
+lsof -n -P -sTCP:LISTEN $arg
