@@ -1,3 +1,16 @@
 #!/bin/sh
 
-echo "Detach:  ctrl+b  d"
+echo <<EOF
+Attach:
+ tmux attach -t <session-name>
+ tmux a -t <session-name>
+
+List sessions:
+ tmux list-sessions
+ tmux ls
+
+Detach:
+ ctrl+b  d
+
+EOF
+
