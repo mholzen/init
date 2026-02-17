@@ -1,1 +1,1 @@
-../bash_profile.d/ordered.sh
+../interactive/ordered.sh

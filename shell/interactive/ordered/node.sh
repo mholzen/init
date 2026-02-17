@@ -1,2 +1,3 @@
 # node binaries
-export PATH="${PATH}:./node_modules/.bin"
+# use npx or npm run instead
+# export PATH="${PATH}:./node_modules/.bin"

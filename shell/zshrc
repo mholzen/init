@@ -11,5 +11,3 @@ for file in ~/.init/shell/interactive/*; do
 		source $file;
 	fi
 done
-
-export PATH="$HOME/.local/bin:$PATH"

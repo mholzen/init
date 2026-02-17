@@ -1,6 +1,4 @@
-export PATH=./bin:\
-$HOME/bin:\
-$HOME/develop/mholzen/play/bin:\
-$HOME/develop/mholzen/log/bin:\
+export PATH=\
+$HOME/.local/bin:\
 $HOME/.init/bin:\
 $PATH
