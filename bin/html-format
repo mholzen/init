@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec tidy -i -q --show-body-only yes --doctype omit "$@"
