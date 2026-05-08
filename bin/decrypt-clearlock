@@ -1,0 +1,1 @@
+rm ~/.gnupg/public-keys.d/pubring.db.lock
