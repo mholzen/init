@@ -51,7 +51,7 @@ if [[ "$ITERM_PROFILE" == "Hotkey Window" ]]; then
 else
   setopt PROMPT_SUBST
   PS1="$colorOn%n@%m:"'$(cwd_physical_short)'$'\n''$(git_branch) '"$colorOff"
-  # PS1+='$(set-title-pwd)'
+  # PS1+='$(set-tab-title-pwd)'
 
   # show exit code of last command
   # PS1='%(?.√.?%?) '$PS1

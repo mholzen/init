@@ -25,7 +25,7 @@ set-window-title() {
     print -n "\033]0;${title}\007"
 }
 
-set-title() {
+set-tab-title() {
     if [[ -n "$1" ]]; then
         export ITERM_SESSION_TITLE="$1"
         set-window-title
@@ -35,11 +35,11 @@ set-title() {
     fi
 }
 
-clear-title() {
+clear-tab-title() {
     unset ITERM_SESSION_TITLE
     set-window-title
 }
 
-unset-title() {
+unset-tab-title() {
     clear-title
 }

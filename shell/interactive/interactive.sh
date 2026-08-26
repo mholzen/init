@@ -21,8 +21,8 @@ search-functions() {
 
 
 # iTerm2
-function set-title-pwd {
-  set-title $(basename $PWD)
+function set-tab-title-pwd {
+  set-tab-title $(basename $PWD)
 }
 
 
