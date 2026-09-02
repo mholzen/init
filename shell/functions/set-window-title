@@ -1,43 +1,98 @@
-set-window-title() {
+get-tab-title() {
+    local mode="${1-}"
+    local git_root
+    local git_status
     local title
 
-    # If a custom session title is set, use it
-    if [[ -n "$ITERM_SESSION_TITLE" ]]; then
-        title="$ITERM_SESSION_TITLE"
-    else
-        # Check if we're in a git repository (faster than calling git executable)
-        local git_dir="$PWD"
-        while [[ "$git_dir" != "/" ]]; do
-            if [[ -d "$git_dir/.git" ]]; then
-                title="${git_dir:t}"  # zsh equivalent of ${var##*/}
-                break
-            fi
-            git_dir="${git_dir:h}"    # zsh equivalent of dirname
-        done
+    case "$mode" in
+        dir)
+            print -r -- "${PWD:t}"
+            return
+            ;;
+        branch|repo)
+            ;;
+        *)
+            print -u2 -- "Cannot set tab title for mode '$mode' from '$PWD': unsupported follow mode"
+            return 1
+            ;;
+    esac
 
-        # If not in git repo, use current directory name
-        if [[ -z "$title" ]]; then
-            title="${PWD:t}"
+    git_root=$(LC_ALL=C git rev-parse --show-toplevel 2>&1)
+    git_status=$?
+    if (( git_status != 0 )); then
+        if [[ "$git_root" == *"not a git repository"* ]]; then
+            print -r -- "${PWD:t}"
+            return
+        fi
+        print -u2 -- "Cannot set tab title for mode '$mode' from '$PWD': $git_root"
+        return "$git_status"
+    fi
+
+    if [[ "$mode" == branch ]]; then
+        title=$(LC_ALL=C git branch --show-current 2>&1)
+        git_status=$?
+        if (( git_status != 0 )); then
+            print -u2 -- "Cannot set tab title for mode '$mode' from '$PWD': $title"
+            return "$git_status"
+        fi
+        if [[ -n "$title" ]]; then
+            print -r -- "$title"
+            return
         fi
     fi
 
-    # Set the title using zsh's print builtin
+    print -r -- "${git_root:t}"
+}
+
+set-window-title() {
+    local title
+
+    if [[ -n "${ITERM_SESSION_TITLE-}" ]]; then
+        title="$ITERM_SESSION_TITLE"
+    else
+        title=$(get-tab-title "${ITERM_SESSION_TITLE_FOLLOW_MODE:-repo}") || return $?
+    fi
+
     print -n "\033]0;${title}\007"
 }
 
 set-tab-title() {
-    if [[ -n "$1" ]]; then
+    if [[ -n "${1-}" ]]; then
+        unset ITERM_SESSION_TITLE_FOLLOW_MODE
         export ITERM_SESSION_TITLE="$1"
         set-window-title
-    else
-        unset ITERM_SESSION_TITLE
-        set-window-title
+        return
     fi
+
+    clear-tab-title
+}
+
+set-tab-title-branch() {
+    local title
+    title=$(get-tab-title branch) || return
+    set-tab-title "$title"
+}
+
+set-tab-title-follow-branch() {
+    unset ITERM_SESSION_TITLE
+    typeset -g ITERM_SESSION_TITLE_FOLLOW_MODE=branch
+    set-window-title
+}
+
+set-tab-title-follow-repo() {
+    unset ITERM_SESSION_TITLE
+    typeset -g ITERM_SESSION_TITLE_FOLLOW_MODE=repo
+    set-window-title
+}
+
+set-tab-title-follow-dir() {
+    unset ITERM_SESSION_TITLE
+    typeset -g ITERM_SESSION_TITLE_FOLLOW_MODE=dir
+    set-window-title
 }
 
 clear-tab-title() {
-    unset ITERM_SESSION_TITLE
-    set-window-title
+    set-tab-title-follow-branch
 }
 
 unset-tab-title() {
