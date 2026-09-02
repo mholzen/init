@@ -13,6 +13,9 @@ commands that keep the title synchronized at every zsh prompt.
 - `set-tab-title-follow-repo` follows repository, then directory.
 - `set-tab-title-follow-dir` follows the current directory.
 
+The one-shot branch command disables any active follow mode and replaces any
+fixed title before selecting its title.
+
 A detached HEAD has no current branch and therefore uses the repository name.
 Outside a Git worktree, branch and repository modes use the directory name.
 The repository name is the basename of the top-level directory reported by
@@ -53,5 +56,6 @@ meaning of the title.
 A zsh test creates temporary Git repositories and verifies branch, repository,
 directory, detached-HEAD, fixed-title, and clear-title behavior. It also verifies
 immediate follow-mode activation, prompt-time refresh, switching between modes,
-idempotent hook registration, and invalid-mode failure. The existing shell tests
-remain green. The README documents the new commands.
+the one-shot command after fixed and followed titles, idempotent hook
+registration, and invalid-mode failure. The existing shell tests remain green.
+The README documents the new commands.
