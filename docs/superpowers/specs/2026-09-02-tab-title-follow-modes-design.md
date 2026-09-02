@@ -38,12 +38,13 @@ the active follow mode. The existing title function selects the title for that
 mode and continues emitting the existing OSC 0 terminal-title sequence.
 
 In `shell/interactive/zsh_hooks.sh`, register one zsh `precmd` hook and invoke
-`set-tab-title-follow-branch` once to establish the startup default. The hook
-does nothing while a fixed title is active. This avoids coupling title updates
-to `PS1` and avoids separate hook registration state for every command. Hook
-registration is idempotent when the shell configuration is sourced repeatedly.
-Remove the existing custom `chpwd` handler because the prompt hook covers both
-directory and branch changes.
+`set-tab-title-follow-branch` only when neither a fixed title nor a follow mode
+already exists. This establishes the startup default without clobbering shell
+state when configuration is sourced again. The hook does nothing while a fixed
+title is active. This avoids coupling title updates to `PS1` and avoids separate
+hook registration state for every command. Hook registration is idempotent when
+the shell configuration is sourced repeatedly. Remove the existing custom
+`chpwd` handler because the prompt hook covers both directory and branch changes.
 
 ## Errors
 
@@ -59,5 +60,6 @@ directory, detached-HEAD, fixed-title, and clear-title behavior. It also verifie
 immediate follow-mode activation, prompt-time refresh, switching between modes,
 the default branch-follow startup, fixed-title suspension, `clear-tab-title`
 restoration, the one-shot command after fixed and followed titles, idempotent
-hook registration, and invalid-mode failure. The existing shell tests remain
-green. The README documents the new commands.
+hook registration, preservation of fixed and non-default modes when shell
+configuration is sourced again, and invalid-mode failure. The existing shell
+tests remain green. The README documents the new commands.
