@@ -27,22 +27,23 @@ updates the title immediately. Subsequent prompts recompute it. Calling one
 follow command replaces any previously active follow mode.
 
 Calling `set-tab-title <text>` disables following and fixes the supplied title.
-Calling `clear-tab-title` disables following and restores the existing automatic
-repository-or-directory title.
+Calling `clear-tab-title` clears the fixed title and restores the default branch
+follow mode.
 
 ## Design
 
-Keep the behavior in `shell/functions/set-window-title`, where title selection
-already lives. A shell-local variable shared by the command functions and hook
-records the active follow mode. The existing title function selects the title
-for that mode and preserves today's default behavior when no follow mode is
-active.
+Keep title selection in `shell/functions/set-window-title`, where it already
+lives. A shell-local variable shared by the command functions and hook records
+the active follow mode. The existing title function selects the title for that
+mode and continues emitting the existing OSC 0 terminal-title sequence.
 
-Register one zsh `precmd` hook. The hook does nothing unless a follow mode is
-active, avoiding coupling title updates to `PS1` and avoiding separate hook
-registration state for every command. Hook registration is idempotent when the
-shell configuration is sourced repeatedly. Existing directory-change updates
-remain in place.
+In `shell/interactive/zsh_hooks.sh`, register one zsh `precmd` hook and invoke
+`set-tab-title-follow-branch` once to establish the startup default. The hook
+does nothing while a fixed title is active. This avoids coupling title updates
+to `PS1` and avoids separate hook registration state for every command. Hook
+registration is idempotent when the shell configuration is sourced repeatedly.
+Remove the existing custom `chpwd` handler because the prompt hook covers both
+directory and branch changes.
 
 ## Errors
 
@@ -56,6 +57,7 @@ meaning of the title.
 A zsh test creates temporary Git repositories and verifies branch, repository,
 directory, detached-HEAD, fixed-title, and clear-title behavior. It also verifies
 immediate follow-mode activation, prompt-time refresh, switching between modes,
-the one-shot command after fixed and followed titles, idempotent hook
-registration, and invalid-mode failure. The existing shell tests remain green.
-The README documents the new commands.
+the default branch-follow startup, fixed-title suspension, `clear-tab-title`
+restoration, the one-shot command after fixed and followed titles, idempotent
+hook registration, and invalid-mode failure. The existing shell tests remain
+green. The README documents the new commands.
