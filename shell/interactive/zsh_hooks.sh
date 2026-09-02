@@ -2,11 +2,15 @@
 
 # Only run in zsh
 if [[ -n "$ZSH_VERSION" ]]; then
-    # Function to update title on directory change
-    chpwd() {
+    update-followed-tab-title() {
+        [[ -n "${ITERM_SESSION_TITLE_FOLLOW_MODE-}" ]] || return 0
         set-window-title
     }
 
-    # Set initial title when shell starts
-    set-window-title
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd update-followed-tab-title
+
+    if [[ -z "${ITERM_SESSION_TITLE_FOLLOW_MODE+x}" && -z "${ITERM_SESSION_TITLE-}" ]]; then
+        set-tab-title-follow-branch
+    fi
 fi

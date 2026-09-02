@@ -104,4 +104,45 @@ ITERM_SESSION_TITLE_FOLLOW_MODE=repo
 assert-failure-containing "Cannot set tab title for mode 'repo' from '$PWD': broken-git" set-window-title
 PATH="$original_path"
 
+run-precmd-hooks() {
+    local hook
+    for hook in "${precmd_functions[@]}"; do
+        "$hook"
+    done
+}
+
+cd "$test_root/project"
+git checkout topic/title --quiet
+unset ITERM_SESSION_TITLE ITERM_SESSION_TITLE_FOLLOW_MODE
+precmd_functions=()
+
+source "$repository_root/shell/interactive/zsh_hooks.sh" > "$output_file"
+assert-equal $'\e]0;topic/title\a' "$(< "$output_file")"
+assert-equal branch "$ITERM_SESSION_TITLE_FOLLOW_MODE"
+
+source "$repository_root/shell/interactive/zsh_hooks.sh" > "$output_file"
+assert-equal '' "$(< "$output_file")"
+title_hooks=("${(@M)precmd_functions:#update-followed-tab-title}")
+assert-equal 1 "${#title_hooks}"
+
+git checkout -b next/title --quiet
+assert-title $'\e]0;next/title\a' run-precmd-hooks
+
+set-tab-title fixed > /dev/null
+source "$repository_root/shell/interactive/zsh_hooks.sh" > "$output_file"
+assert-equal fixed "$ITERM_SESSION_TITLE"
+assert-equal unset "${ITERM_SESSION_TITLE_FOLLOW_MODE-unset}"
+assert-title '' run-precmd-hooks
+
+set-tab-title-follow-repo > /dev/null
+source "$repository_root/shell/interactive/zsh_hooks.sh" > "$output_file"
+assert-equal repo "$ITERM_SESSION_TITLE_FOLLOW_MODE"
+
+set-tab-title-follow-dir > /dev/null
+source "$repository_root/shell/interactive/zsh_hooks.sh" > "$output_file"
+assert-equal dir "$ITERM_SESSION_TITLE_FOLLOW_MODE"
+
+clear-tab-title > /dev/null
+assert-equal branch "$ITERM_SESSION_TITLE_FOLLOW_MODE"
+
 print 'Tab title tests passed'
