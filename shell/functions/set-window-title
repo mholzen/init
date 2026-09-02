@@ -6,7 +6,7 @@ get-tab-title() {
 
     case "$mode" in
         dir)
-            print -r -- "${PWD:t}"
+            print -r -- "${${PWD:t}:-/}"
             return
             ;;
         branch|repo)
@@ -20,8 +20,8 @@ get-tab-title() {
     git_root=$(LC_ALL=C git rev-parse --show-toplevel 2>&1)
     git_status=$?
     if (( git_status != 0 )); then
-        if [[ "$git_root" == *"not a git repository"* ]]; then
-            print -r -- "${PWD:t}"
+        if [[ "$git_root" == *"not a git repository"* || "$git_root" == *"must be run in a work tree"* ]]; then
+            print -r -- "${${PWD:t}:-/}"
             return
         fi
         print -u2 -- "Cannot set tab title for mode '$mode' from '$PWD': $git_root"
@@ -41,7 +41,7 @@ get-tab-title() {
         fi
     fi
 
-    print -r -- "${git_root:t}"
+    print -r -- "${${git_root:t}:-/}"
 }
 
 set-window-title() {

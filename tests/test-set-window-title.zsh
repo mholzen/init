@@ -93,6 +93,34 @@ assert-title $'\e]0;outside\a' set-window-title
 ITERM_SESSION_TITLE_FOLLOW_MODE=repo
 assert-title $'\e]0;outside\a' set-window-title
 
+cd /
+ITERM_SESSION_TITLE_FOLLOW_MODE=dir
+assert-title $'\e]0;/\a' set-window-title
+
+git init --bare --quiet "$test_root/bare"
+cd "$test_root/bare"
+ITERM_SESSION_TITLE_FOLLOW_MODE=branch
+assert-title $'\e]0;bare\a' set-window-title
+ITERM_SESSION_TITLE_FOLLOW_MODE=repo
+assert-title $'\e]0;bare\a' set-window-title
+
+git -C "$test_root/project" worktree add -b linked/title "$test_root/linked" --quiet
+cd "$test_root/linked"
+ITERM_SESSION_TITLE_FOLLOW_MODE=branch
+assert-title $'\e]0;linked/title\a' set-window-title
+ITERM_SESSION_TITLE_FOLLOW_MODE=repo
+assert-title $'\e]0;linked\a' set-window-title
+
+git init --quiet "$test_root/submodule-source"
+git -C "$test_root/submodule-source" -c user.name=Test -c user.email=test@example.com \
+    commit --allow-empty --message initial --quiet
+git -C "$test_root/project" -c protocol.file.allow=always \
+    submodule add --quiet "$test_root/submodule-source" module
+cd "$test_root/project/module"
+ITERM_SESSION_TITLE_FOLLOW_MODE=repo
+assert-title $'\e]0;module\a' set-window-title
+
+cd "$test_root/outside"
 ITERM_SESSION_TITLE_FOLLOW_MODE=invalid
 assert-failure-containing "Cannot set tab title for mode 'invalid' from '$PWD'" set-window-title
 
