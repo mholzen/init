@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# usage: tails <file>...     e.g. tails */out.log
+# tail -F every file, prefixing each line with the part of the path that tells the files apart
+
+if [ $# -eq 0 ]; then
+  echo "Cannot tail: no files given (usage: tails <file>...)" >&2
+  exit 2
+fi
+
+shared_start=$1
+shared_end=$1
+for file; do
+  while [ "${file#"$shared_start"}" = "$file" ] && [ -n "$shared_start" ]; do shared_start=${shared_start%?}; done
+  while [ "${file%"$shared_end"}" = "$file" ] && [ -n "$shared_end" ]; do shared_end=${shared_end#?}; done
+done
+shared_start=${shared_start%"${shared_start##*/}"}
+shared_end=${shared_end#"${shared_end%%[/.]*}"}
+
+trap 'kill $(jobs -p) 2>/dev/null' EXIT
+
+for file; do
+  label=${file#"$shared_start"}
+  label=${label%"$shared_end"}
+  tail -n 0 -F "$file" | awk -v label="${label:-$file}" '{ print "[" label "] " $0; fflush() }' &
+done
+wait

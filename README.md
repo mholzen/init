@@ -13,3 +13,14 @@ to the repository name and then the current directory.
 - `set-tab-title-follow-dir` follows the current directory.
 - `set-tab-title <text>` fixes a custom title.
 - `clear-tab-title` restores default branch following.
+
+## Following several logs
+
+`tails <file>...` follows every file like `tail -F` and prefixes each line with
+the part of the path that tells the files apart:
+
+```
+$ tails */out.log
+[api] listening on :8080
+[worker] picked up job 42
+```
